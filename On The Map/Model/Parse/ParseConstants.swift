@@ -41,7 +41,7 @@ class ParseConstants {
         static let latitude: String = "latitude"
         static let longitude: String = "longitude"
         static let createdAt: String = "createdAt"
-        static let updatedAt: String = "updatedAt"
+        static let updatedAt: String = "-updatedAt"
         static let ACL: String = "ACL"
     }
 }
