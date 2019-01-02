@@ -19,6 +19,8 @@
 		D5ED0C2C21A5072E00DB172A /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C2B21A5072E00DB172A /* ParseClient.swift */; };
 		D5ED0C2E21A5073D00DB172A /* ParseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C2D21A5073D00DB172A /* ParseConstants.swift */; };
 		D5ED0C3021A5075900DB172A /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C2F21A5075900DB172A /* UdacityConstants.swift */; };
+		D5ED0C3221DC346700DB172A /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3121DC346700DB172A /* ParseConvenience.swift */; };
+		D5ED0C3421DC347C00DB172A /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3321DC347C00DB172A /* UdacityConvenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		D5ED0C2B21A5072E00DB172A /* ParseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		D5ED0C2D21A5073D00DB172A /* ParseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConstants.swift; sourceTree = "<group>"; };
 		D5ED0C2F21A5075900DB172A /* UdacityConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
+		D5ED0C3121DC346700DB172A /* ParseConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
+		D5ED0C3321DC347C00DB172A /* UdacityConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 			children = (
 				D5ED0C2921A5071F00DB172A /* UdacityClient.swift */,
 				D5ED0C2F21A5075900DB172A /* UdacityConstants.swift */,
+				D5ED0C3321DC347C00DB172A /* UdacityConvenience.swift */,
 			);
 			path = Udacity;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			children = (
 				D5ED0C2B21A5072E00DB172A /* ParseClient.swift */,
 				D5ED0C2D21A5073D00DB172A /* ParseConstants.swift */,
+				D5ED0C3121DC346700DB172A /* ParseConvenience.swift */,
 			);
 			path = Parse;
 			sourceTree = "<group>";
@@ -260,10 +266,12 @@
 				D5ED0C2221A2444600DB172A /* SignUpViewController.swift in Sources */,
 				D5ED0C3021A5075900DB172A /* UdacityConstants.swift in Sources */,
 				D5D9F39D219A952200AA60D1 /* LoginViewController.swift in Sources */,
+				D5ED0C3421DC347C00DB172A /* UdacityConvenience.swift in Sources */,
 				D5ED0C2C21A5072E00DB172A /* ParseClient.swift in Sources */,
 				D5ED0C2A21A5071F00DB172A /* UdacityClient.swift in Sources */,
 				D5B7838A219A6B80008240F3 /* AppDelegate.swift in Sources */,
 				D5ED0C2821A250A200DB172A /* MapViewController.swift in Sources */,
+				D5ED0C3221DC346700DB172A /* ParseConvenience.swift in Sources */,
 				D5ED0C2E21A5073D00DB172A /* ParseConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

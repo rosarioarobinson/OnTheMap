@@ -22,6 +22,7 @@ class UdacityConstants {
         static let ApiHost: String = "udacity.com"
         static let ApiPath: String = "/api"
         static let BaseURL: String = "https://www.udacity.com/api/"
+        static let PublicUserURL: String = "https://onthemap-api.udacity.com/v1/session"
     }
     
     // MARK: Parameter Keys
@@ -29,6 +30,7 @@ class UdacityConstants {
         static let Udacity: String = "udacity"
         static let username: String = "username"
         static let password: String = "password"
+        static let accesstoken: String = "access_token"
     }
     
     //MARK: Methods

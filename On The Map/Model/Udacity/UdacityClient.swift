@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class UdacityClient {
+    
+    static let shared = UdacityClient()
+    
+    // Shared session
+    var session = URLSession.shared
+    
+    // To authenticate
+    var SessionID: String? = nil
+    
+    
+    
+    
+}

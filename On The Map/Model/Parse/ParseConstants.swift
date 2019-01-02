@@ -42,6 +42,8 @@ class ParseConstants {
         static let longitude: String = "longitude"
         static let createdAt: String = "createdAt"
         static let updatedAt: String = "-updatedAt"
+        static let requestToken = "request_token"
+        static let SessionID = "session_id"
         static let ACL: String = "ACL"
     }
 }
