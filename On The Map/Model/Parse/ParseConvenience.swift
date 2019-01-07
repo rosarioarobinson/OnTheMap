@@ -13,13 +13,15 @@ extension ParseClient {
     
     //MARK: Authenticating Users
     
-    private func getStudentLocations(_ requestToken: String?, completionHandlerForGetALocation: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
+    private func getStudentLocations(_ requestToken: String?, completionHandlerForSession: @escaping (_ success: Bool, _ sessionID: String?, _ errorString: String?) -> Void) {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let parameters = [ParseConstants.JSONResponseKeys.requestToken: requestToken!]
         
         /* 2. Make the request */
-        let _ = taskForGetMultipleLocations(url: ParseConstants.Methods.StudentLocations, response: parameters) { (results, error) in
+        let _ = taskForGetMultipleLocations(url:(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!) as! URL, response: parameters as [AnyObject]) { (results, error) in
+            
+        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
             
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {
