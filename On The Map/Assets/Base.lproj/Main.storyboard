@@ -320,7 +320,7 @@
         <scene sceneID="cwa-fZ-1P3">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OAu-wl-1sz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Map View Controller" id="rm0-PN-ffq" sceneMemberID="viewController">
+                <viewController title="Map View Controller" id="rm0-PN-ffq" customClass="MapViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2uU-WK-c5Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -339,6 +339,9 @@
                         <viewLayoutGuide key="safeArea" id="rtC-31-Kmk"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon_mapview-selected" selectedImage="icon_mapview-deselected" id="kl2-3O-jbC"/>
+                    <connections>
+                        <outlet property="mapView" destination="zMn-ok-1ty" id="JrP-4q-NR3"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2628" y="-203.74812593703149"/>
