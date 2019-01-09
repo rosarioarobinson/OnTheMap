@@ -269,9 +269,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iF8-eb-TMD">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iF8-eb-TMD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add Location" id="tLP-Lf-CbS">
                                         <leftBarButtonItems>
@@ -287,19 +286,29 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9du-IG-fY1">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9du-IG-fY1">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bB-oJ-8Sn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bB-oJ-8Sn">
                                 <rect key="frame" x="132" y="579" width="110" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="FINISH">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9du-IG-fY1" firstAttribute="trailing" secondItem="MTz-Dq-vge" secondAttribute="trailing" id="C6l-9Q-h8y"/>
+                            <constraint firstItem="iF8-eb-TMD" firstAttribute="leading" secondItem="9du-IG-fY1" secondAttribute="leading" id="El5-Pp-BqZ"/>
+                            <constraint firstItem="iF8-eb-TMD" firstAttribute="trailing" secondItem="9du-IG-fY1" secondAttribute="trailing" id="aSd-dj-5rW"/>
+                            <constraint firstItem="9du-IG-fY1" firstAttribute="leading" secondItem="MTz-Dq-vge" secondAttribute="leading" id="e3b-45-spp"/>
+                            <constraint firstItem="iF8-eb-TMD" firstAttribute="top" secondItem="eUs-5E-Gtg" secondAttribute="top" id="iqW-La-T1z"/>
+                            <constraint firstItem="9du-IG-fY1" firstAttribute="bottom" secondItem="MTz-Dq-vge" secondAttribute="bottom" id="kzl-KP-uUS"/>
+                            <constraint firstItem="9bB-oJ-8Sn" firstAttribute="leading" secondItem="MTz-Dq-vge" secondAttribute="leading" constant="132" id="saw-iI-1uH"/>
+                            <constraint firstItem="iF8-eb-TMD" firstAttribute="centerX" secondItem="9bB-oJ-8Sn" secondAttribute="centerX" id="u3t-w5-bHW"/>
+                            <constraint firstItem="MTz-Dq-vge" firstAttribute="bottom" secondItem="9bB-oJ-8Sn" secondAttribute="bottom" constant="58" id="u5Z-MC-9ls"/>
+                            <constraint firstItem="9du-IG-fY1" firstAttribute="top" secondItem="iF8-eb-TMD" secondAttribute="bottom" id="uSx-J2-u0E"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MTz-Dq-vge"/>
                     </view>
                 </viewController>
