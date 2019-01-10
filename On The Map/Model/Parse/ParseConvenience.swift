@@ -26,13 +26,11 @@ extension ParseClient {
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {
                 print(error)
-                completionHandlerForGET(false, nil, "Login Failed (Session ID).")
             } else {
                 if let sessionID = results?[ParseConstants.JSONResponseKeys.SessionID] as? String {
                     completionHandlerForGET(true, sessionID, nil)
                 } else {
                     print("Could not find \(ParseConstants.JSONResponseKeys.SessionID) in \(results)")
-                    completionHandlerForGET(false, nil, "Login Failed (Session ID).")
                 }
             }
         }

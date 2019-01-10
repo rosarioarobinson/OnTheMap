@@ -209,10 +209,10 @@
             </objects>
             <point key="canvasLocation" x="3372" y="464.6176911544228"/>
         </scene>
-        <!--Infromation View Controller-->
+        <!--Information View Controller-->
         <scene sceneID="ykN-0E-tsX">
             <objects>
-                <viewController title="Infromation View Controller" id="o7r-W0-vBO" sceneMemberID="viewController">
+                <viewController title="Information View Controller" id="o7r-W0-vBO" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q2q-6M-pEK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

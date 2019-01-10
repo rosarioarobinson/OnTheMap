@@ -13,10 +13,6 @@ class UdacityConstants {
     //MARK: Constants
     struct Constants {
         
-        //MARK: API Key
-        static let APP_ID = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
-        static let RestAPIKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
-        
         //MARK: URL
         static let ApiScheme: String = "https"
         static let ApiHost: String = "udacity.com"

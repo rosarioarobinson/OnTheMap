@@ -23,18 +23,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         _ = [MKPointAnnotation]()
         
         //insert StudentLocation structs
-        for dictionary in ParseConstants.Methods.StudentLocations {
+        for student in StudentInformation {
             
         //latitude and longitude
-            let lat = CLLocationDegrees(dictionary.latitude ?? 0)
-            let long = CLLocationDegrees(dictionary.longitude ?? 0)
+            let lat = CLLocationDegrees(student.latitude ?? 0)
+            let long = CLLocationDegrees(student.longitude ?? 0)
             
         //latitude and longitude are used to create CLLocationCoordinates2D instance.
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
             
-            let first = dictionary["firstName"] as! String
-            let last = dictionary["lastName"] as! String
-            let mediaURL = dictionary["mediaURL"] as! String
+            let first = student.firstName
+            let last = student["lastName"] as! String
+            let mediaURL = student["mediaURL"] as! String
             
             //Here we create the annotation and set its coordiate, title, and subtitle properties
             let annotation = MKPointAnnotation()

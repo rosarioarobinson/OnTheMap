@@ -23,6 +23,7 @@
 		D5ED0C3421DC347C00DB172A /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3321DC347C00DB172A /* UdacityConvenience.swift */; };
 		D5ED0C3621E3EBAF00DB172A /* InformationPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3521E3EBAF00DB172A /* InformationPostingViewController.swift */; };
 		D5ED0C3821E3EE9300DB172A /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3721E3EE9300DB172A /* AddLocationViewController.swift */; };
+		D5ED0C3A21E7DFBE00DB172A /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3921E7DFBE00DB172A /* StudentInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		D5ED0C3321DC347C00DB172A /* UdacityConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
 		D5ED0C3521E3EBAF00DB172A /* InformationPostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPostingViewController.swift; sourceTree = "<group>"; };
 		D5ED0C3721E3EE9300DB172A /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		D5ED0C3921E7DFBE00DB172A /* StudentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				D5ED0C2421A24B0200DB172A /* Parse */,
 				D5ED0C2321A24AF900DB172A /* Udacity */,
+				D5ED0C3921E7DFBE00DB172A /* StudentInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				D5ED0C3821E3EE9300DB172A /* AddLocationViewController.swift in Sources */,
 				D5ED0C2821A250A200DB172A /* MapViewController.swift in Sources */,
 				D5ED0C3221DC346700DB172A /* ParseConvenience.swift in Sources */,
+				D5ED0C3A21E7DFBE00DB172A /* StudentInformation.swift in Sources */,
 				D5ED0C3621E3EBAF00DB172A /* InformationPostingViewController.swift in Sources */,
 				D5ED0C2E21A5073D00DB172A /* ParseConstants.swift in Sources */,
 			);
