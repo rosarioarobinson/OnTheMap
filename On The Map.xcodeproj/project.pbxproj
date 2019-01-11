@@ -24,6 +24,7 @@
 		D5ED0C3621E3EBAF00DB172A /* InformationPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3521E3EBAF00DB172A /* InformationPostingViewController.swift */; };
 		D5ED0C3821E3EE9300DB172A /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3721E3EE9300DB172A /* AddLocationViewController.swift */; };
 		D5ED0C3A21E7DFBE00DB172A /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3921E7DFBE00DB172A /* StudentInformation.swift */; };
+		D5ED0C3C21E7F89500DB172A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3B21E7F89500DB172A /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		D5ED0C3521E3EBAF00DB172A /* InformationPostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPostingViewController.swift; sourceTree = "<group>"; };
 		D5ED0C3721E3EE9300DB172A /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		D5ED0C3921E7DFBE00DB172A /* StudentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
+		D5ED0C3B21E7F89500DB172A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				D5ED0C2721A250A200DB172A /* MapViewController.swift */,
 				D5ED0C3521E3EBAF00DB172A /* InformationPostingViewController.swift */,
 				D5ED0C3721E3EE9300DB172A /* AddLocationViewController.swift */,
+				D5ED0C3B21E7F89500DB172A /* TableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5ED0C2221A2444600DB172A /* SignUpViewController.swift in Sources */,
+				D5ED0C3C21E7F89500DB172A /* TableViewController.swift in Sources */,
 				D5ED0C3021A5075900DB172A /* UdacityConstants.swift in Sources */,
 				D5D9F39D219A952200AA60D1 /* LoginViewController.swift in Sources */,
 				D5ED0C3421DC347C00DB172A /* UdacityConvenience.swift in Sources */,

@@ -35,15 +35,15 @@
                                     <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5F-kB-JYh">
-                                <rect key="frame" x="251" y="318" width="57" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5F-kB-JYh">
+                                <rect key="frame" x="253" y="318" width="55" height="30"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="signUpAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j1g-ZA-ues"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuJ-gL-Gql">
-                                <rect key="frame" x="72" y="323" width="179" height="20"/>
+                                <rect key="frame" x="72" y="323" width="173" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                             <constraint firstItem="WeX-Ij-Ka4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="82" id="Whu-Dm-zcP"/>
                             <constraint firstItem="oqc-oo-dAq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="72" id="ZZI-q7-dR0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oqc-oo-dAq" secondAttribute="trailing" constant="67" id="cbb-rd-u1a"/>
-                            <constraint firstItem="e5F-kB-JYh" firstAttribute="leading" secondItem="iuJ-gL-Gql" secondAttribute="trailing" id="kIe-5L-7vZ"/>
+                            <constraint firstItem="e5F-kB-JYh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iuJ-gL-Gql" secondAttribute="trailing" constant="8" symbolic="YES" id="kIe-5L-7vZ"/>
                             <constraint firstItem="oqc-oo-dAq" firstAttribute="top" secondItem="IQD-EL-xl8" secondAttribute="bottom" constant="8" id="oqe-20-pLz"/>
                             <constraint firstItem="PA5-Yk-LsW" firstAttribute="top" secondItem="WeX-Ij-Ka4" secondAttribute="bottom" constant="35" id="pk1-iW-s01"/>
                             <constraint firstItem="PA5-Yk-LsW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="72" id="rJ5-56-lEg"/>
@@ -150,7 +150,7 @@
         <!--Table View Controller-->
         <scene sceneID="ngo-1R-mHn">
             <objects>
-                <tableViewController id="xkg-5E-YWD" sceneMemberID="viewController">
+                <tableViewController id="xkg-5E-YWD" customClass="TableViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OPJ-h6-HAa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,7 +160,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aFn-Of-fwf" id="mGE-qX-eUo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fi3-GB-XIt">
@@ -204,6 +204,11 @@
                             <outlet property="delegate" destination="xkg-5E-YWD" id="C10-JF-KAY"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="nameLabel" destination="Fi3-GB-XIt" id="ED1-Er-5Tr"/>
+                        <outlet property="pinIcon" destination="ktJ-TE-eaX" id="9qu-fq-Wi7"/>
+                        <outlet property="urlLabel" destination="Pab-7i-5Y3" id="7m6-Ed-OXf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoL-mO-AMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -276,7 +281,7 @@
                                         <leftBarButtonItems>
                                             <barButtonItem title="Back Button" image="icon_back-arrow" id="UlB-CU-uNs"/>
                                             <barButtonItem title="Add Location" style="plain" id="zRk-4I-s8c">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u4n-Rd-EsZ">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u4n-Rd-EsZ">
                                                     <rect key="frame" x="59" y="7" width="90" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Add Location"/>
@@ -354,7 +359,7 @@
                     <navigationItem key="navigationItem" title="On The Map" id="GLZ-LM-Yw8">
                         <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="HPT-fO-42z"/>
                         <rightBarButtonItems>
-                            <barButtonItem title="Pin" image="icon_pin" id="Moy-ir-XEa"/>
+                            <barButtonItem title="Add" image="icon_addpin" id="Moy-ir-XEa"/>
                             <barButtonItem title="Refresh" image="icon_refresh" id="kwg-rp-5VD"/>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -373,6 +378,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_addpin" width="24" height="24"/>
         <image name="icon_back-arrow" width="24" height="24"/>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_listview-selected" width="75" height="50"/>

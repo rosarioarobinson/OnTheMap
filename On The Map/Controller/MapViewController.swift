@@ -20,10 +20,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = [MKPointAnnotation]()
+        var annotation = [MKPointAnnotation]()
         
         //insert StudentLocation structs
-        for student in StudentInformation {
+        for student in StudentInformation.studentArray {
             
         //latitude and longitude
             let lat = CLLocationDegrees(student.latitude ?? 0)
@@ -33,8 +33,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
             
             let first = student.firstName
-            let last = student["lastName"] as! String
-            let mediaURL = student["mediaURL"] as! String
+            let last = student.lastName
+            let mediaURL = student.mediaURL
             
             //Here we create the annotation and set its coordiate, title, and subtitle properties
             let annotation = MKPointAnnotation()
