@@ -10,6 +10,10 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    // MARK: Properties
+    
+    var appDelegate: AppDelegate!
+    
     //MARK: Outlets
 
     @IBOutlet weak var UsernameTextField: UITextField!
@@ -24,6 +28,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //app delegate
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +44,40 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         unsubscribeFromKeyboardNotifications()
     }
     
+    @IBAction func LogInPressed(_ sender: AnyObject) {
+        
+        if UsernameTextField.text!.isEmpty || PasswordTextField.text!.isEmpty {
+            print("Username or Password is Empty.")
+        } else {
+            //getting login credentials from UdacityClient
+            UdacityClient.sharedInstance().authentiateUser(username: UsernameTextField.text!, password: PasswordTextField.text!) { (success, errorString) in
+                    if success {
+                        self.completeLogin()
+                    }else if errorString != nil{
+                        self.showAlert(title: "Login Failed", message: errorString)
+                    }else{
+                        self.showAlert(title: "Login Failed", message: "Incorrect credentials were provided.")
+                    }
+            }
+        }
+        
+
+        
+        /*guard let username = UsernameTextField.text, username != "" else {
+            print("username is empty")
+            newAlert(title: "Error!", message: "Please enter your username or email address!")
+            return
+        }
+        guard let password = PasswordTextField.text, password != "" else {
+            print("password is empty")
+            createAlert(title: "Error!", message: "Please enter your password!")
+            return
+        }
+        
+        disableUI()*/
+        
+    }
+    
     //MARK: Action for SignUp to open Safari
     @IBAction func signUpAction(_ sender: AnyObject) {
         
@@ -45,6 +86,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
     }
+    
     
     //subscribe to keyboard notifications
     func subscribeToKeyboardNotifications() {
@@ -59,7 +101,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    //allows keyboard to move frame upwards to show 'BOTTOM' text
+    //allows keyboard to move frame upwards
     @objc func keyboardWillShow(notification: NSNotification) {
         
     }
@@ -69,9 +111,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.frame.origin.y = 0
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    
+    private func completeLogin() {
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "TabBarViewController") as! UITabBarController
+        self.present(controller, animated: true, completion: nil)
+        
     }
+    
     
 }

@@ -20,7 +20,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var annotation = [MKPointAnnotation]()
+        var annotations = [MKPointAnnotation]()
         
         //insert StudentLocation structs
         for student in StudentInformation.studentArray {
@@ -39,17 +39,47 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             //Here we create the annotation and set its coordiate, title, and subtitle properties
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
-            annotation.title = "\(first) \(last)"
+            annotation.title = "\(String(describing: first)) \(String(describing: last))"
             annotation.subtitle = mediaURL
             
             //Finally we place the annotation in an array of annotations.
-            annotation.append(annotation)
+            annotations.append(annotation)
             
             //When the array is complete, we add the annotations to the map.
-            self.mapView.addAnnotations(annotation)
+            self.mapView.addAnnotations(annotations)
             
         }
         
     }
     
+    //MARK: MKMapViewDelegate
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.pinTintColor = .red
+            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        else {
+            pinView!.annotation = annotation
+        }
+        
+        return pinView
+    }
+    
+    //Method implemented to respond to taps
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            let app = UIApplication.shared
+            if let toOpen = view.annotation?.subtitle! {
+                app.openURL(URL(string: toOpen)!)
+            }
+        }
+    }
 }

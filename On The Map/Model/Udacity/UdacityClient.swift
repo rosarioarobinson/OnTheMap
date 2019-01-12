@@ -76,13 +76,14 @@ class UdacityClient {
     func taskForPostMethod <ResponseType: Decodable>(url: URL, jsonBody: [String:AnyObject], response: ResponseType.Type, completionHandlerForPost: @escaping (ResponseType?, Error?) -> Void) {
         
         //Parameters
-        let url = URL(string:UdacityConstants.Constants.BaseURL + UdacityConstants.Methods.StudentLocations)
+        let url = URL(string:UdacityConstants.Constants.PublicUserURL)
         
         //URL Request
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = "{\"udacity\": {\"username\": \"account@domain.com\", \"password\": \"********\"}}".data(using: .utf8)
         
         //Pass Body to the Request
         do {

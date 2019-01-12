@@ -15,7 +15,7 @@ class UdacityConstants {
         
         //MARK: URL
         static let ApiScheme: String = "https"
-        static let ApiHost: String = "udacity.com"
+        static let ApiHost: String = "www.udacity.com"
         static let ApiPath: String = "/api"
         static let BaseURL: String = "https://www.udacity.com/api/"
         static let PublicUserURL: String = "https://onthemap-api.udacity.com/v1/session"

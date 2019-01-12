@@ -19,17 +19,18 @@ extension ParseClient {
         let parameters = [ParseConstants.JSONResponseKeys.requestToken]
         
         /* 2. Make the request */
-        let _ = taskForGetMultipleLocations(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!, response: String.self) { (results, error) in
+        let _ = taskForGetMultipleLocations(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!, response: ResponseType.self) { (results, error) in
             
         var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
             
             /* 3. Send the desired value(s) to completion handler */
+            //deprecated additional else statement, kept getting this error: 'cannot call non-function type ResponseType'
             if let error = error {
                 print(error)
-            } else {
-                if let sessionID = results?[ParseConstants.JSONResponseKeys.SessionID] as? String {
+            } /*else {
+                if let sessionID = results?(ParseConstants.JSONResponseKeys.SessionID) as? String {
                     completionHandlerForGET(true, sessionID, nil)
-                } else {
+                }*/ else {
                     print("Could not find \(ParseConstants.JSONResponseKeys.SessionID) in \(results)")
                 }
             }
@@ -37,5 +38,5 @@ extension ParseClient {
     }
 
     
-}
+
 

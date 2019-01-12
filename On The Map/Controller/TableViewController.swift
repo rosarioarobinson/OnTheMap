@@ -11,10 +11,6 @@ import UIKit
 
 class  TableViewController: UITableViewController {
     
-    //MARK: Outlets
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var urlLabel: UILabel!
-    @IBOutlet weak var pinIcon: UIImageView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     

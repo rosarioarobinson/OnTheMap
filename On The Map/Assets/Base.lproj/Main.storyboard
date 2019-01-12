@@ -34,6 +34,9 @@
                                 <state key="normal" title="LOG IN">
                                     <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="LogInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NSH-nq-Fsf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5F-kB-JYh">
                                 <rect key="frame" x="253" y="318" width="55" height="30"/>
@@ -156,11 +159,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="94" id="aFn-Of-fwf">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="94" id="aFn-Of-fwf" customClass="TableViewCell" customModule="On_The_Map" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aFn-Of-fwf" id="mGE-qX-eUo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fi3-GB-XIt">
@@ -195,6 +198,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="newLabel" destination="Fi3-GB-XIt" id="GKG-qO-mZx"/>
+                                    <outlet property="pinIcon" destination="ktJ-TE-eaX" id="m9B-VS-xHJ"/>
+                                    <outlet property="urlLabel" destination="Pab-7i-5Y3" id="fnO-2s-DuE"/>
                                     <segue destination="o7r-W0-vBO" kind="presentation" id="SMy-xe-2n9"/>
                                 </connections>
                             </tableViewCell>
@@ -204,11 +210,6 @@
                             <outlet property="delegate" destination="xkg-5E-YWD" id="C10-JF-KAY"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="nameLabel" destination="Fi3-GB-XIt" id="ED1-Er-5Tr"/>
-                        <outlet property="pinIcon" destination="ktJ-TE-eaX" id="9qu-fq-Wi7"/>
-                        <outlet property="urlLabel" destination="Pab-7i-5Y3" id="7m6-Ed-OXf"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoL-mO-AMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -355,7 +356,7 @@
         <scene sceneID="pRy-Lm-vA9">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2Z-1P-tBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tabBarController id="Zhl-T9-ZEA" sceneMemberID="viewController">
+                <tabBarController id="Zhl-T9-ZEA" customClass="TabBarViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On The Map" id="GLZ-LM-Yw8">
                         <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="HPT-fO-42z"/>
                         <rightBarButtonItems>
@@ -369,6 +370,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="addBarButton" destination="Moy-ir-XEa" id="syX-xI-gzd"/>
+                        <outlet property="logoutBarButton" destination="HPT-fO-42z" id="WBv-IW-uYX"/>
+                        <outlet property="refreshBarButton" destination="kwg-rp-5VD" id="Qs7-kq-npb"/>
                         <segue destination="rm0-PN-ffq" kind="relationship" relationship="viewControllers" id="of9-v8-hp0"/>
                         <segue destination="9tD-VJ-XDW" kind="relationship" relationship="viewControllers" id="0dG-t0-18v"/>
                     </connections>
