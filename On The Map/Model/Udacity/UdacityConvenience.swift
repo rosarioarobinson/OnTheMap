@@ -14,14 +14,14 @@ extension UdacityClient {
     //POST
     //Note: This is where 'loginUser' for LoginViewController is from.
     
-    func loginUser <ResponseType: Decodable>(username: String, password: String, url: URL, jsonBody: [String:AnyObject], response: ResponseType.Type, completionHandlerForPost: @escaping (ResponseType?, Error?) -> Void) {
+    func loginUser (username: String, password: String, url: URL, jsonBody: [AnyObject], completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let parameters = [UdacityConstants.Constants.PublicUserURL]
         let parameterKeys = [UdacityConstants.ParameterKeys.username + UdacityConstants.ParameterKeys.password]
         
         /* 2. Make the request */
-        let _ = taskForPostMethod(url: URL(string: "https://www.udacity.com/api/session")!, jsonBody: jsonBody, response: ResponseType.self) { (results, error) in
+        let _ = taskForPostMethod(username, url: URL(string: "https://www.udacity.com/api/session")!, jsonBody: (jsonBody as AnyObject) as! [AnyObject]) { (results, error) in
 
             
             /* 3. Send the desired value(s) to completion handler */
@@ -34,13 +34,13 @@ extension UdacityClient {
     
     //GET
     
-    func getUserData <ResponseType: Decodable>(url: URL, response: ResponseType.Type, completionHandlerForGET: @escaping (ResponseType?, Error?) -> Void){
+    func getUserData (_ method: String, url: URL, completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void){
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let parameters = [UdacityConstants.Methods.StudentLocations]
         
         /* 2. Make the request */
-        let _ = taskForGetMethod(url: URL(string: "https://www.udacity.com/StudentLocation")!, response: ResponseType.self) { (results, error) in
+        let _ = taskForGetMethod(method, url: URL(string: "https://www.udacity.com/StudentLocation")!) { (results, error) in
 
             
             /* 3. Send the desired value(s) to completion handler */
@@ -53,13 +53,13 @@ extension UdacityClient {
     
     //DELETE
     
-    func deleteASession <ResponseType: Decodable>(url: URL, jsonBody: [String:AnyObject], response: ResponseType.Type, completionHandlerForDelete: @escaping (ResponseType?, Error?) -> Void) {
+    func deleteASession (_ method: String, url: URL, jsonBody: [String:AnyObject], completionHandlerForDelete: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let parameters = [UdacityConstants.Methods.Session]
         
         /* 2. Make the request */
-        let _ = taskForDeleteMethod(url: URL(string: "https://www.udacity.com/api/session")!, jsonBody: jsonBody, response: ResponseType.self) { (results, error) in
+        let _ = taskForDeleteMethod(method, url: URL(string: "https://www.udacity.com/api/session")!, jsonBody: jsonBody as AnyObject) { (results, error) in
 
             
             /* 3. Send the desired value(s) to completion handler */

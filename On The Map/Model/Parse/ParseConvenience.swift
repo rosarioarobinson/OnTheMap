@@ -14,13 +14,13 @@ extension ParseClient {
     //MARK: Authenticating Users
     //GET
     
-    private func getStudentLocations<ResponseType: Decodable>(url: URL, response: ResponseType.Type, completionHandlerForGET: @escaping (ResponseType?, Error?) -> Void) {
+    private func getStudentLocations (_ method: String, url: URL, completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let parameters = [ParseConstants.Methods.StudentLocations]
         
         /* 2. Make the request */
-        let _ = taskForGetMultipleLocations(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!, response: ResponseType.self) { (results, error) in
+        let _ = taskForGetMultipleLocations(method, url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!) { (results, error) in
             
         /*var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)*/
             
@@ -40,13 +40,13 @@ extension ParseClient {
         }
     
     //POST
-    private func postStudentLocation <ResponseType: Decodable>(url: URL, jsonBody: [String:AnyObject], response: ResponseType.Type, completionHandlerForPost: @escaping (ResponseType?, Error?) -> Void) {
+    private func postStudentLocation (_ method: String, url: URL, jsonBody: [String:AnyObject], completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let parameters = [ParseConstants.Methods.StudentLocations]
         
         /* 2. Make the request */
-        let _ = taskForPostALocation(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!, jsonBody: jsonBody, response: ResponseType.self) { (results, error) in
+        let _ = taskForPostALocation(method, url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!, jsonBody: (jsonBody as AnyObject) as! [AnyObject]) { (results, error) in
             
         /*var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)*/
             
@@ -67,13 +67,13 @@ extension ParseClient {
     }
     
     //PUT
-    private func putStudentLocation <ResponseType: Decodable>(url: URL, jsonBody: [String:AnyObject], response: ResponseType.Type, completionHandlerForPUT: @escaping (ResponseType?, Error?) -> Void){
+    private func putStudentLocation (_ method: String, url: URL, jsonBody: [String:AnyObject], completionHandlerForPUT: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void){
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let parameters = [ParseConstants.Methods.StudentLocations]
         
         /* 2. Make the request */
-        let _ = taskForPutALocation(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!, jsonBody: jsonBody, response: ResponseType.self) { (results, error) in
+        let _ = taskForPutALocation(method, url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!, jsonBody: (jsonBody as AnyObject) as! [AnyObject]) { (results, error) in
             
             /*var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)*/
             

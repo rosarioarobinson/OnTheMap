@@ -53,7 +53,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
             //getting login credentials from UdacityClient and UdacityConvenience
         
-        UdacityClient.sharedInstance().loginUser(username: UsernameTextField.text!, password: PasswordTextField.text!, url: URL(string: "https://www.udacity.com/api/session")!, jsonBody: [:], response: ResponseType.type) { (success, errorString) in
+        UdacityClient.sharedInstance().loginUser(username: UsernameTextField.text!, password: PasswordTextField.text!, url: URL(string: "https://www.udacity.com/api/session")!, jsonBody: AnyObject) { (success, errorString) in
                     if success {
                         self.completeLogin()
                     }else if errorString != nil{

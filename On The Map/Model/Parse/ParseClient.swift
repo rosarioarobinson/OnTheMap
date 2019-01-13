@@ -16,7 +16,7 @@ class ParseClient {
     var session = URLSession.shared
     
     //MARK: Get single student location
-        func taskForGetALocation <ResponseType: Decodable>(url: URL, response: ResponseType.Type, completionHandlerForGET: @escaping (ResponseType?, Error?) -> Void) {
+        func taskForGetALocation (_ method: String, url: URL, completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
             
             //Parameters
             let url = URL(string:ParseConstants.Constants.BaseURL + ParseConstants.Methods.StudentLocations)
@@ -48,14 +48,14 @@ class ParseClient {
                 }
                 
                 /* GUARD: Was there any data returned? */
-                guard let data = data else {
+                guard data != nil else {
                     sendError("No data was returned by the request!")
                     return
                 }
                 
                 
                 //JSON
-                do {
+                /*do {
                     let decoder = JSONDecoder()
                     let responseObject = try decoder.decode(ResponseType.self, from: data)
                     DispatchQueue.main.async {
@@ -65,14 +65,14 @@ class ParseClient {
                     DispatchQueue.main.async {
                         completionHandlerForGET(nil, error)
                     }
-                }
+                }*/
             }
             task.resume()
         }
     
     
     //MARK: Get multiple student locations
-    func taskForGetMultipleLocations <ResponseType: Decodable>(url: URL, response: ResponseType.Type, completionHandlerForGetMultipleLocations: @escaping (ResponseType?, Error?) -> Void) {
+    func taskForGetMultipleLocations (_ method: String, url: URL, completionHandlerForGetMultipleLocations: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         //URL Request
         var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=100")!)
@@ -101,13 +101,13 @@ class ParseClient {
             }
             
             /* GUARD: Was there any data returned? */
-            guard let data = data else {
+            guard data != nil else {
                 sendError("No data was returned by the request!")
                 return
             }
             
             //JSON
-            do {
+            /*do {
                 let decoder = JSONDecoder()
                 let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
@@ -117,14 +117,14 @@ class ParseClient {
                 DispatchQueue.main.async {
                     completionHandlerForGetMultipleLocations(nil, error)
                 }
-            }
+            }*/
         }
         task.resume()
     }
     
     
     //MARK: POST Student Locations
-    func taskForPostALocation <ResponseType: Decodable>(url: URL, jsonBody: [String:AnyObject], response: ResponseType.Type, completionHandlerForPost: @escaping (ResponseType?, Error?) -> Void) {
+    func taskForPostALocation (_ method: String, url: URL, jsonBody: [AnyObject], completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         //Parameters
         let url = URL(string:ParseConstants.Constants.BaseURL + ParseConstants.Methods.StudentLocations)
@@ -162,13 +162,13 @@ class ParseClient {
                 }
                 
                 /* GUARD: Was there any data returned? */
-                guard let data = data else {
+                guard data != nil else {
                     sendError("No data was returned by the request!")
                     return
                 }
             
             //JSON
-            do {
+            /*do {
                 let decoder = JSONDecoder()
                 let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
@@ -178,13 +178,13 @@ class ParseClient {
                 DispatchQueue.main.async {
                     completionHandlerForPost(nil, error)
                 }
-            }
+            }*/
         }
         task.resume()
     }
     
     //MARK: PUT Student Locations
-    func taskForPutALocation <ResponseType: Decodable>(url: URL, jsonBody: [String:AnyObject], response: ResponseType.Type, completionHandlerForPUT: @escaping (ResponseType?, Error?) -> Void) {
+    func taskForPutALocation (_ method: String, url: URL, jsonBody: [AnyObject], completionHandlerForPut: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         //Parameters
         let url = URL(string:ParseConstants.Constants.BaseURL + ParseConstants.Methods.StudentLocations + ParseConstants.JSONResponseKeys.ObjectID)
@@ -206,7 +206,7 @@ class ParseClient {
             func sendError(_ error: String) {
                 print(error)
                 let userInfo = [NSLocalizedDescriptionKey : error]
-                completionHandlerForPUT(nil, NSError(domain: "taskForPUTMethod", code: 1, userInfo: userInfo))
+                completionHandlerForPut(nil, NSError(domain: "taskForPUTMethod", code: 1, userInfo: userInfo))
             }
             
             /* GUARD: Was there an error? */
@@ -222,13 +222,13 @@ class ParseClient {
             }
             
             /* GUARD: Was there any data returned? */
-            guard let data = data else {
+            guard data != nil else {
                 sendError("No data was returned by the request!")
                 return
             }
             
             //JSON
-            do {
+            /*do {
                 let decoder = JSONDecoder()
                 let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
@@ -238,9 +238,23 @@ class ParseClient {
                 DispatchQueue.main.async {
                     completionHandlerForPUT(nil, error)
                 }
-            }
+            }*/
         }
         task.resume()
+    }
+    
+    // given raw JSON, return a usable Foundation object
+    private func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
+        
+        var parsedResult: AnyObject! = nil
+        do {
+            parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
+        } catch {
+            let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
+            completionHandlerForConvertData(nil, NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
+        }
+        
+        completionHandlerForConvertData(parsedResult, nil)
     }
     
     // MARK: Shared Instance

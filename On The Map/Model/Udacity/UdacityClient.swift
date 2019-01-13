@@ -19,7 +19,7 @@ class UdacityClient {
     var SessionID: String? = nil
     
     //GETting Public User Data
-    func taskForGetMethod <ResponseType: Decodable>(url: URL, response: ResponseType.Type, completionHandlerForGET: @escaping (ResponseType?, Error?) -> Void) {
+    func taskForGetMethod(_ method: String, url: URL, completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         //Parameters
         let url = URL(string:UdacityConstants.Constants.BaseURL + UdacityConstants.Methods.StudentLocations)
@@ -49,14 +49,14 @@ class UdacityClient {
             }
             
             /* GUARD: Was there any data returned? */
-            guard let data = data else {
+            guard data != nil else {
                 sendError("No data was returned by the request!")
                 return
             }
             
             
             //JSON
-            do {
+           /* do {
                 let decoder = JSONDecoder()
                 let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
@@ -64,16 +64,16 @@ class UdacityClient {
                 }
             } catch {
                 DispatchQueue.main.async {
-                    completionHandlerForGET(nil, error)
+                    completionHandlerForGET(nil, error as NSError)
                 }
-            }
+            }*/
         }
         task.resume()
     }
 
     //POSTing a Session
     
-    func taskForPostMethod <ResponseType: Decodable>(url: URL, jsonBody: [String:AnyObject], response: ResponseType.Type, completionHandlerForPost: @escaping (ResponseType?, Error?) -> Void) {
+    func taskForPostMethod(_ method: String, url: URL, jsonBody: [AnyObject], completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         //Parameters
         let url = URL(string:UdacityConstants.Constants.PublicUserURL)
@@ -112,13 +112,13 @@ class UdacityClient {
             }
             
             /* GUARD: Was there any data returned? */
-            guard let data = data else {
+            guard data != nil else {
                 sendError("No data was returned by the request!")
                 return
             }
             
             //JSON
-            do {
+            /*do {
                 let decoder = JSONDecoder()
                 let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
@@ -128,14 +128,14 @@ class UdacityClient {
                 DispatchQueue.main.async {
                     completionHandlerForPost(nil, error)
                 }
-            }
+            }*/
         }
         task.resume()
     }
     
     //DELETing a Session
     
-    func taskForDeleteMethod <ResponseType: Decodable>(url: URL, jsonBody: [String:AnyObject], response: ResponseType.Type, completionHandlerForDelete: @escaping (ResponseType?, Error?) -> Void) {
+    func taskForDeleteMethod(_ method: String, url: URL, jsonBody: AnyObject, completionHandlerForDelete: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         //Parameters
         let url = URL(string:UdacityConstants.Constants.BaseURL + UdacityConstants.Methods.Session)
@@ -176,13 +176,13 @@ class UdacityClient {
             }
             
             /* GUARD: Was there any data returned? */
-            guard let data = data else {
+            guard data != nil else {
                 sendError("No data was returned by the request!")
                 return
             }
             
             //JSON
-            do {
+           /* do {
                 let decoder = JSONDecoder()
                 let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
@@ -192,9 +192,23 @@ class UdacityClient {
                 DispatchQueue.main.async {
                     completionHandlerForDelete(nil, error)
                 }
-            }
+            }*/
         }
         task.resume()
+    }
+    
+    // given raw JSON, return a usable Foundation object
+    private func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
+        
+        var parsedResult: AnyObject! = nil
+        do {
+            parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
+        } catch {
+            let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
+            completionHandlerForConvertData(nil, NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
+        }
+        
+        completionHandlerForConvertData(parsedResult, nil)
     }
     
     // MARK: Shared Instance
