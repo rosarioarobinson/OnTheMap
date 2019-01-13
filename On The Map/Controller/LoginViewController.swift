@@ -31,6 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         //app delegate
         appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,9 +49,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if UsernameTextField.text!.isEmpty || PasswordTextField.text!.isEmpty {
             print("Username or Password is Empty.")
-        } else {
-            //getting login credentials from UdacityClient
-            UdacityClient.sharedInstance().authentiateUser(username: UsernameTextField.text!, password: PasswordTextField.text!) { (success, errorString) in
+        }
+        
+            //getting login credentials from UdacityClient and UdacityConvenience
+        
+        UdacityClient.sharedInstance().loginUser(username: UsernameTextField.text!, password: PasswordTextField.text!, url: URL(string: "https://www.udacity.com/api/session")!, jsonBody: [:], response: ResponseType.type) { (success, errorString) in
                     if success {
                         self.completeLogin()
                     }else if errorString != nil{
@@ -59,9 +62,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         self.showAlert(title: "Login Failed", message: "Incorrect credentials were provided.")
                     }
             }
-        }
         
-
         
         /*guard let username = UsernameTextField.text, username != "" else {
             print("username is empty")

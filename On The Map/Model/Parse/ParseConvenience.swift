@@ -12,29 +12,88 @@ import UIKit
 extension ParseClient {
     
     //MARK: Authenticating Users
+    //GET
     
     private func getStudentLocations<ResponseType: Decodable>(url: URL, response: ResponseType.Type, completionHandlerForGET: @escaping (ResponseType?, Error?) -> Void) {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
-        let parameters = [ParseConstants.JSONResponseKeys.requestToken]
+        let parameters = [ParseConstants.Methods.StudentLocations]
         
         /* 2. Make the request */
         let _ = taskForGetMultipleLocations(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!, response: ResponseType.self) { (results, error) in
             
-        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+        /*var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)*/
             
             /* 3. Send the desired value(s) to completion handler */
-            //deprecated additional else statement, kept getting this error: 'cannot call non-function type ResponseType'
+            //note:deprecated if let statement, kept getting this error: 'Type 'ResponseType' has no subscript members'
             if let error = error {
-                print(error)
+                completionHandlerForGET(nil, error)
             } /*else {
-                if let sessionID = results?(ParseConstants.JSONResponseKeys.SessionID) as? String {
-                    completionHandlerForGET(true, sessionID, nil)
-                }*/ else {
-                    print("Could not find \(ParseConstants.JSONResponseKeys.SessionID) in \(results)")
+                
+                if let results = results?[ParseConstants.JSONResponseKeys.requestToken] as? [[String:AnyObject]] {
+                    completionHandlerForGET(results, nil)
+                } else {
+                    completionHandlerForGET(nil, NSError(domain: "getStudentLocations", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student data"]))
                 }
+            }*/
             }
         }
+    
+    //POST
+    private func postStudentLocation <ResponseType: Decodable>(url: URL, jsonBody: [String:AnyObject], response: ResponseType.Type, completionHandlerForPost: @escaping (ResponseType?, Error?) -> Void) {
+        
+        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+        let parameters = [ParseConstants.Methods.StudentLocations]
+        
+        /* 2. Make the request */
+        let _ = taskForPostALocation(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!, jsonBody: jsonBody, response: ResponseType.self) { (results, error) in
+            
+        /*var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)*/
+            
+            /* 3. Send the desired value(s) to completion handler */
+            //note:deprecated if let statement, kept getting this error: 'Type 'ResponseType' has no subscript members'
+            if let error = error {
+                completionHandlerForPost(nil, error)
+            } /*else {
+             
+             if let results = results?[ParseConstants.JSONResponseKeys.requestToken] as? [[String:AnyObject]] {
+             completionHandlerForGET(results, nil)
+             } else {
+             completionHandlerForGET(nil, NSError(domain: "getStudentLocations", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student data"]))
+             }
+             }*/
+        }
+        
+    }
+    
+    //PUT
+    private func putStudentLocation <ResponseType: Decodable>(url: URL, jsonBody: [String:AnyObject], response: ResponseType.Type, completionHandlerForPUT: @escaping (ResponseType?, Error?) -> Void){
+        
+        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+        let parameters = [ParseConstants.Methods.StudentLocations]
+        
+        /* 2. Make the request */
+        let _ = taskForPutALocation(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!, jsonBody: jsonBody, response: ResponseType.self) { (results, error) in
+            
+            /*var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)*/
+            
+            /* 3. Send the desired value(s) to completion handler */
+            //note:deprecated if let statement, kept getting this error: 'Type 'ResponseType' has no subscript members'
+            if let error = error {
+                completionHandlerForPUT(nil, error)
+            } /*else {
+             
+             if let results = results?[ParseConstants.JSONResponseKeys.requestToken] as? [[String:AnyObject]] {
+             completionHandlerForGET(results, nil)
+             } else {
+             completionHandlerForGET(nil, NSError(domain: "getStudentLocations", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student data"]))
+             }
+             }*/
+        }
+        
+    }
+    
+    
     }
 
     

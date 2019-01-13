@@ -138,7 +138,7 @@ class UdacityClient {
     func taskForDeleteMethod <ResponseType: Decodable>(url: URL, jsonBody: [String:AnyObject], response: ResponseType.Type, completionHandlerForDelete: @escaping (ResponseType?, Error?) -> Void) {
         
         //Parameters
-        let url = URL(string:UdacityConstants.Constants.BaseURL + UdacityConstants.Methods.StudentLocations)
+        let url = URL(string:UdacityConstants.Constants.BaseURL + UdacityConstants.Methods.Session)
         
         //URL Request
         var request = URLRequest(url: url!)
