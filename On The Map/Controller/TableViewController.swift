@@ -15,6 +15,11 @@ class  TableViewController: UITableViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     //Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -22,25 +27,30 @@ class  TableViewController: UITableViewController {
     
     //Mark: TableView Data
     
-    /*override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return studentLocations.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return StudentInformation.studentArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //dequeue
-        let cell = tableView.dequeueReusableCell(withIdentifier: "studentLocations", for: indexPath) as! TableViewController
-        let meme = memes[indexPath.row]
-        cell.nameLabel?.text = meme.topText + "..." + meme.bottomText
-        cell.memeImageView?.image = meme.memedImage
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentInformation", for: indexPath) as! UITableViewCell
+        let student = StudentInformation.studentArray[indexPath.row]
+        let mediaURL = StudentInformation.studentArray[indexPath.row].mediaURL
+     
+        //cell default info
+        cell.textLabel?.text = (student.firstName!) + "..." + (student.lastName!)
+        cell.imageView!.image = UIImage(named: "icon_pin")
+        cell.detailTextLabel?.text = mediaURL
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let meme = (UIApplication.shared.delegate as! AppDelegate).memes[(indexPath as NSIndexPath).row]
+     
+        let app = UIApplication.shared
+        let url = StudentInformation.studentArray[indexPath.row].mediaURL
         
-        tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "MemeDetailViewController", sender: meme)
-    }*/
+     
+    }
     
     
 }

@@ -21,12 +21,12 @@
 		D5ED0C3021A5075900DB172A /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C2F21A5075900DB172A /* UdacityConstants.swift */; };
 		D5ED0C3221DC346700DB172A /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3121DC346700DB172A /* ParseConvenience.swift */; };
 		D5ED0C3421DC347C00DB172A /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3321DC347C00DB172A /* UdacityConvenience.swift */; };
-		D5ED0C3621E3EBAF00DB172A /* InformationPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3521E3EBAF00DB172A /* InformationPostingViewController.swift */; };
 		D5ED0C3821E3EE9300DB172A /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3721E3EE9300DB172A /* AddLocationViewController.swift */; };
 		D5ED0C3A21E7DFBE00DB172A /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3921E7DFBE00DB172A /* StudentInformation.swift */; };
 		D5ED0C3C21E7F89500DB172A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3B21E7F89500DB172A /* TableViewController.swift */; };
 		D5ED0C4221E95D6600DB172A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C4121E95D6600DB172A /* TableViewCell.swift */; };
 		D5ED0C4421E9620000DB172A /* OnTheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C4321E9620000DB172A /* OnTheMap.swift */; };
+		D5ED0C4621ED34E400DB172A /* AddLocationMAPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C4521ED34E400DB172A /* AddLocationMAPViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,12 +58,12 @@
 		D5ED0C2F21A5075900DB172A /* UdacityConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
 		D5ED0C3121DC346700DB172A /* ParseConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
 		D5ED0C3321DC347C00DB172A /* UdacityConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
-		D5ED0C3521E3EBAF00DB172A /* InformationPostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPostingViewController.swift; sourceTree = "<group>"; };
 		D5ED0C3721E3EE9300DB172A /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		D5ED0C3921E7DFBE00DB172A /* StudentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		D5ED0C3B21E7F89500DB172A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D5ED0C4121E95D6600DB172A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		D5ED0C4321E9620000DB172A /* OnTheMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMap.swift; sourceTree = "<group>"; };
+		D5ED0C4521ED34E400DB172A /* AddLocationMAPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationMAPViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,12 +138,12 @@
 			children = (
 				D5D9F39C219A952200AA60D1 /* LoginViewController.swift */,
 				D5ED0C2121A2444600DB172A /* SignUpViewController.swift */,
+				D5ED0C4321E9620000DB172A /* OnTheMap.swift */,
 				D5ED0C2721A250A200DB172A /* MapViewController.swift */,
-				D5ED0C3521E3EBAF00DB172A /* InformationPostingViewController.swift */,
-				D5ED0C3721E3EE9300DB172A /* AddLocationViewController.swift */,
 				D5ED0C3B21E7F89500DB172A /* TableViewController.swift */,
 				D5ED0C4121E95D6600DB172A /* TableViewCell.swift */,
-				D5ED0C4321E9620000DB172A /* OnTheMap.swift */,
+				D5ED0C3721E3EE9300DB172A /* AddLocationViewController.swift */,
+				D5ED0C4521ED34E400DB172A /* AddLocationMAPViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,9 +293,9 @@
 				D5B7838A219A6B80008240F3 /* AppDelegate.swift in Sources */,
 				D5ED0C3821E3EE9300DB172A /* AddLocationViewController.swift in Sources */,
 				D5ED0C2821A250A200DB172A /* MapViewController.swift in Sources */,
+				D5ED0C4621ED34E400DB172A /* AddLocationMAPViewController.swift in Sources */,
 				D5ED0C3221DC346700DB172A /* ParseConvenience.swift in Sources */,
 				D5ED0C3A21E7DFBE00DB172A /* StudentInformation.swift in Sources */,
-				D5ED0C3621E3EBAF00DB172A /* InformationPostingViewController.swift in Sources */,
 				D5ED0C2E21A5073D00DB172A /* ParseConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

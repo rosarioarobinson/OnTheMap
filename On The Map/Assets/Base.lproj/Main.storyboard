@@ -215,10 +215,10 @@
             </objects>
             <point key="canvasLocation" x="3372" y="464.6176911544228"/>
         </scene>
-        <!--Information View Controller-->
+        <!--Add Location View Controller-->
         <scene sceneID="ykN-0E-tsX">
             <objects>
-                <viewController title="Information View Controller" id="o7r-W0-vBO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLocationMAPViewController" title="Add Location View Controller" id="o7r-W0-vBO" customClass="AddLocationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q2q-6M-pEK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,12 +241,19 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVw-qg-Fbh">
                                 <rect key="frame" x="122" y="373" width="133" height="30"/>
                                 <state key="normal" title="FInd Location"/>
+                                <connections>
+                                    <action selector="findLocationTapped:" destination="o7r-W0-vBO" eventType="touchUpInside" id="Bud-WJ-VGG"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ly-Ig-0ws">
                                 <rect key="frame" x="0.0" y="-4" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Add Location" id="1MA-6i-YuY">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="jJB-78-Bbd"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="jJB-78-Bbd">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="o7r-W0-vBO" id="0cc-By-kJC"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -275,6 +282,9 @@
                         <viewLayoutGuide key="safeArea" id="vwc-XX-Jek"/>
                     </view>
                     <connections>
+                        <outlet property="currentLocationTextField" destination="8iw-5n-ofn" id="Rlt-IJ-jhr"/>
+                        <outlet property="findLocationButton" destination="yVw-qg-Fbh" id="QIU-tC-VAe"/>
+                        <outlet property="urlTextField" destination="2ds-Si-8TH" id="ngb-bQ-Fb5"/>
                         <segue destination="QMt-Z4-RM3" kind="presentation" id="sqJ-bK-RVD"/>
                     </connections>
                 </viewController>
@@ -282,10 +292,10 @@
             </objects>
             <point key="canvasLocation" x="4234.3999999999996" y="461.91904047976016"/>
         </scene>
-        <!--Add Location View Controller-->
+        <!--Add Location MAP View Controller-->
         <scene sceneID="pnj-LR-H2J">
             <objects>
-                <viewController title="Add Location View Controller" id="QMt-Z4-RM3" sceneMemberID="viewController">
+                <viewController title="Add Location MAP View Controller" id="QMt-Z4-RM3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eUs-5E-Gtg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,7 +323,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bB-oJ-8Sn">
                                 <rect key="frame" x="132" y="579" width="110" height="30"/>
                                 <state key="normal" title="FINISH">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.10231783773279002" blue="0.069515765568351151" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>

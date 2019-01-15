@@ -52,8 +52,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
             //getting login credentials from UdacityClient and UdacityConvenience
+            //jsonBody error: 'Cannot convert value of type '[String : AnyObject].Type' to expected argument type '[AnyObject]'
         
-        UdacityClient.sharedInstance().loginUser(username: UsernameTextField.text!, password: PasswordTextField.text!, url: URL(string: "https://www.udacity.com/api/session")!, jsonBody: AnyObject) { (success, errorString) in
+        /*UdacityClient.sharedInstance().loginUser(username: UsernameTextField.text!, password: PasswordTextField.text!, url: URL(string: "https://www.udacity.com/api/session")!, jsonBody: [String: AnyObject]) { (success, errorString) in
                     if success {
                         self.completeLogin()
                     }else if errorString != nil{
@@ -61,7 +62,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     }else{
                         self.showAlert(title: "Login Failed", message: "Incorrect credentials were provided.")
                     }
-            }
+            }*/
         
         
         /*guard let username = UsernameTextField.text, username != "" else {
