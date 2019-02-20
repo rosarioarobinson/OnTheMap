@@ -73,7 +73,7 @@ class UdacityClient {
 
     //POSTing a Session
     
-    func taskForPostMethod(_ method: String, url: URL, jsonBody: [AnyObject], completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
+    func taskForPostMethod(_ method: String, url: URL, completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         //Parameters
         let url = URL(string:UdacityConstants.Constants.PublicUserURL)
@@ -86,9 +86,9 @@ class UdacityClient {
         request.httpBody = "{\"udacity\": {\"username\": \"account@domain.com\", \"password\": \"********\"}}".data(using: .utf8)
         
         //Pass Body to the Request
-        do {
+        /*do {
             request.httpBody = try! JSONSerialization.data(withJSONObject: jsonBody, options: .prettyPrinted)
-        }
+        }*/
         
         
         //create task

@@ -24,7 +24,7 @@ extension UdacityClient {
 
         
         /* 2. Make the request */
-        let _ = taskForPostMethod(username, url: URL(string: "https://www.udacity.com/api/session")!, jsonBody: (jsonBody as AnyObject) as! [AnyObject]) { (results, error) in
+        let _ = taskForPostMethod(username, url: URL(string: "https://www.udacity.com/api/session")!) { (results, error) in
 
             
             /* 3. Send the desired value(s) to completion handler */
