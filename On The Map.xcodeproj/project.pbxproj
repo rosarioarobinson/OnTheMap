@@ -26,7 +26,7 @@
 		D5ED0C3C21E7F89500DB172A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C3B21E7F89500DB172A /* TableViewController.swift */; };
 		D5ED0C4221E95D6600DB172A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C4121E95D6600DB172A /* TableViewCell.swift */; };
 		D5ED0C4421E9620000DB172A /* OnTheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C4321E9620000DB172A /* OnTheMap.swift */; };
-		D5ED0C4621ED34E400DB172A /* AddLocationMAPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C4521ED34E400DB172A /* AddLocationMAPViewController.swift */; };
+		D5ED0C48221E628A00DB172A /* AddLocationFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0C47221E628A00DB172A /* AddLocationFinalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,7 @@
 		D5ED0C3B21E7F89500DB172A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D5ED0C4121E95D6600DB172A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		D5ED0C4321E9620000DB172A /* OnTheMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMap.swift; sourceTree = "<group>"; };
-		D5ED0C4521ED34E400DB172A /* AddLocationMAPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationMAPViewController.swift; sourceTree = "<group>"; };
+		D5ED0C47221E628A00DB172A /* AddLocationFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationFinalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +143,7 @@
 				D5ED0C3B21E7F89500DB172A /* TableViewController.swift */,
 				D5ED0C4121E95D6600DB172A /* TableViewCell.swift */,
 				D5ED0C3721E3EE9300DB172A /* AddLocationViewController.swift */,
-				D5ED0C4521ED34E400DB172A /* AddLocationMAPViewController.swift */,
+				D5ED0C47221E628A00DB172A /* AddLocationFinalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,9 +291,9 @@
 				D5ED0C2C21A5072E00DB172A /* ParseClient.swift in Sources */,
 				D5ED0C2A21A5071F00DB172A /* UdacityClient.swift in Sources */,
 				D5B7838A219A6B80008240F3 /* AppDelegate.swift in Sources */,
+				D5ED0C48221E628A00DB172A /* AddLocationFinalViewController.swift in Sources */,
 				D5ED0C3821E3EE9300DB172A /* AddLocationViewController.swift in Sources */,
 				D5ED0C2821A250A200DB172A /* MapViewController.swift in Sources */,
-				D5ED0C4621ED34E400DB172A /* AddLocationMAPViewController.swift in Sources */,
 				D5ED0C3221DC346700DB172A /* ParseConvenience.swift in Sources */,
 				D5ED0C3A21E7DFBE00DB172A /* StudentInformation.swift in Sources */,
 				D5ED0C2E21A5073D00DB172A /* ParseConstants.swift in Sources */,
