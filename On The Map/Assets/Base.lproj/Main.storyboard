@@ -295,7 +295,7 @@
         <!--Add Location Final View Controller-->
         <scene sceneID="pnj-LR-H2J">
             <objects>
-                <viewController title="Add Location Final View Controller" id="QMt-Z4-RM3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLocationFInalViewController" title="Add Location Final View Controller" id="QMt-Z4-RM3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eUs-5E-Gtg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -45,13 +45,13 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         view.frame.origin.y = 0
     }
     
-    //Once 'Find Location' is pressed, moves onto AddLocationMAPViewController
+    //Once 'Find Location' is pressed, moves onto AddLocationFinalViewController
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddLocationMAPViewController" {
-            let addLocationMAPViewController = segue.destination as! AddLocationViewController
-            memeDetailViewController.meme = sender as! Meme
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddLocationFinalViewController" {
+            let addLocationFinalViewController = segue.destination as! AddLocationViewController
+     
         }
-    }*/
+    }
     
 }

@@ -14,17 +14,17 @@ extension UdacityClient {
     //POST
     //Note: This is where 'loginUser' for LoginViewController is from.
     
-    func loginUser (username: String, password: String, url: URL, jsonBody: [String], completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
+    func loginUser (usernameLogin: String, passwordLogin: String, url: URL, jsonBody: [String], completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let parameters = [UdacityConstants.Constants.PublicUserURL]
         let parameterKeys = [UdacityConstants.ParameterKeys.username + UdacityConstants.ParameterKeys.password]
-        let httpBody: String = "{\"udacity\": {\"username\": \"account@domain.com\", \"password\": \"********\"}}"
+        let httpBody: String = "{\"udacity\": {\"username\": \"username\", \"password\": \"password\"}}"
         
 
         
         /* 2. Make the request */
-        let _ = taskForPostMethod(username, url: URL(string: "https://www.udacity.com/api/session")!) { (results, error) in
+        let _ = taskForPostMethod(usernameLogin, url: URL(string: "https://www.udacity.com/api/session")!, username: usernameLogin, password: passwordLogin) { (results, error) in
 
             
             /* 3. Send the desired value(s) to completion handler */
