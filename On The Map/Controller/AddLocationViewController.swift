@@ -43,8 +43,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     //Initiate Geocoder to forward location
     func getCurrentLocation(completionHandler: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
-        
-        CLGeocoder().geocodeAddressString(mapString!) { (placeMarks, err) in
+        CLGeocoder().geocodeAddressString(currentLocationTextField!) { (placeMarks, err) in
             
             guard let firstLocation = placeMarks?.first?.location else { return }
             
