@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
@@ -43,13 +44,23 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     //Initiate Geocoder to forward location
     func getCurrentLocation(completionHandler: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
-        CLGeocoder().geocodeAddressString(currentLocationTextField!) { (placeMarks, err) in
+        
+        if let locationString = currentLocationTextField.text{
+            CLGeocoder().geocodeAddressString(currentLocationTextField.text!) { (placeMarks, err) in
+                
+                guard let firstLocation = placeMarks?.first?.location else { return }
+                
+                
+                let latitude = firstLocation.coordinate.latitude
+                let longitude = firstLocation.coordinate.longitude
+                // Use above cororidnates and pass them to your final view controller.
+            }
+        }
             
-            guard let firstLocation = placeMarks?.first?.location else { return }
+        else{
+            // Show some error that the input is not present
+            //tried adding error, wouldn't work?
             
-            let latitude = firstLocation.coordinate.latitude
-            let longitude = firstLocation.coordinate.longitude
-            // Use above cororidnates and pass them to your final view controller.
         }
     }
     

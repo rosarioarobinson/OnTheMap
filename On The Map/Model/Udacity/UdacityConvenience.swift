@@ -31,6 +31,9 @@ extension UdacityClient {
             if let error = error {
                 completionHandlerForPost(nil, error)
             }
+            else {
+                completionHandlerForPost(nil, nil)
+            }
         }
         
     }

@@ -24,4 +24,13 @@ class TabBarViewController: UITabBarController {
         super.viewWillAppear(animated)
     }
     
+    @IBAction func logoutBarButtonPressed(_ sender: Any) {
+    
+        //shows error expecting type?
+        /*UdacityClient.sharedInstance().deleteASession(_, method: String, url: URL, jsonBody: [String:AnyObject], completionHandlerForDelete: (_, result: AnyObject?, _, error: NSError?) -> Void)*/
+        
+    }
+    
+    
+    
 }

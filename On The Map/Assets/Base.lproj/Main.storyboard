@@ -140,13 +140,13 @@
         <!--View Controller-->
         <scene sceneID="LOg-Pg-J6r">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EMh-n7-mWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="9tD-VJ-XDW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="icon_listview-deselected" selectedImage="icon_listview-selected" id="Tud-XY-Zqi"/>
                     <connections>
                         <segue destination="xkg-5E-YWD" kind="showDetail" id="DG2-8x-rSs"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EMh-n7-mWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2629" y="462"/>
         </scene>
@@ -351,7 +351,6 @@
         <!--Map View Controller-->
         <scene sceneID="cwa-fZ-1P3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OAu-wl-1sz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Map View Controller" id="rm0-PN-ffq" customClass="MapViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2uU-WK-c5Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -375,16 +374,20 @@
                         <outlet property="mapView" destination="zMn-ok-1ty" id="JrP-4q-NR3"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OAu-wl-1sz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2628" y="-203.74812593703149"/>
         </scene>
         <!--On The Map-->
         <scene sceneID="pRy-Lm-vA9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K2Z-1P-tBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="Zhl-T9-ZEA" customClass="TabBarViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On The Map" id="GLZ-LM-Yw8">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="HPT-fO-42z"/>
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="HPT-fO-42z">
+                            <connections>
+                                <action selector="logoutBarButtonPressed:" destination="Zhl-T9-ZEA" id="WpR-74-JPm"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Add" image="icon_addpin" id="Moy-ir-XEa"/>
                             <barButtonItem title="Refresh" image="icon_refresh" id="kwg-rp-5VD"/>
@@ -403,6 +406,7 @@
                         <segue destination="9tD-VJ-XDW" kind="relationship" relationship="viewControllers" id="0dG-t0-18v"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K2Z-1P-tBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1676" y="130"/>
         </scene>

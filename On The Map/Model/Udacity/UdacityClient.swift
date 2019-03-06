@@ -83,7 +83,7 @@ class UdacityClient {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"udacity\": {\"username\": \"username\", \"password\": \"password\"}}".data(using: .utf8)
+        request.httpBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}".data(using: .utf8)
         
         //Pass Body to the Request
         /*do {
@@ -129,6 +129,24 @@ class UdacityClient {
                     completionHandlerForPost(nil, error)
                 }
             }*/
+            
+            //added to be able to retrieve user profiles
+            
+            let newData = data?.subdata(in: 5..<data!.count)
+            if let json = try? JSONSerialization.jsonObject(with: newData!, options: []),
+                let dict = json as? [String:Any],
+                let sessionDict = dict["session"] as? [String: Any],
+                let accountDict = dict["account"] as? [String: Any]  {
+                
+                let key = accountDict["key"] as? String // This is used in getUserInfo(completion:)
+                let sessionId = sessionDict["id"] as? String
+                print(key ?? "Empty Key")
+                print(sessionId ?? "Emty session id")
+                
+            } else { //Err in parsing data
+                var errString = "Couldn't parse response"
+            }
+        
         }
         task.resume()
     }
