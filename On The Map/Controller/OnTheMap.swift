@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit 
 
 class TabBarViewController: UITabBarController {
     
@@ -28,6 +29,11 @@ class TabBarViewController: UITabBarController {
     
         //shows error expecting type?
         /*UdacityClient.sharedInstance().deleteASession(_, method: String, url: URL, jsonBody: [String:AnyObject], completionHandlerForDelete: (_, result: AnyObject?, _, error: NSError?) -> Void)*/
+        
+    }
+    
+    @IBAction func refreshBarButtonPressed(_ sender: Any) {
+        
         
     }
     

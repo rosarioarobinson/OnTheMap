@@ -390,7 +390,11 @@
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Add" image="icon_addpin" id="Moy-ir-XEa"/>
-                            <barButtonItem title="Refresh" image="icon_refresh" id="kwg-rp-5VD"/>
+                            <barButtonItem title="Refresh" image="icon_refresh" id="kwg-rp-5VD">
+                                <connections>
+                                    <action selector="refreshBarButtonPressed:" destination="Zhl-T9-ZEA" id="Qsu-25-Jx6"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VXE-VF-DrO">
