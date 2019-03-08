@@ -25,7 +25,7 @@ class  TableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    //Mark: TableView Data
+    //MARK: TableView Data
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return StudentInformation.studentArray.count

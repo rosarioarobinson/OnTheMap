@@ -53,7 +53,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
                 
                 let latitude = firstLocation.coordinate.latitude
                 let longitude = firstLocation.coordinate.longitude
-                // Use above cororidnates and pass them to your final view controller.
+                // Use above coordinates and pass them to your final view controller.
             }
         }
             

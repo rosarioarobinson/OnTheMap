@@ -12,6 +12,8 @@ import MapKit
 
 class TabBarViewController: UITabBarController {
     
+    //MARK: Outlets
+    
     @IBOutlet weak var logoutBarButton: UIBarButtonItem!
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
     @IBOutlet weak var addBarButton: UIBarButtonItem!
@@ -25,15 +27,19 @@ class TabBarViewController: UITabBarController {
         super.viewWillAppear(animated)
     }
     
+    //MARK: Actions
+    
     @IBAction func logoutBarButtonPressed(_ sender: Any) {
     
-        //shows error expecting type?
-        /*UdacityClient.sharedInstance().deleteASession(_, method: String, url: URL, jsonBody: [String:AnyObject], completionHandlerForDelete: (_, result: AnyObject?, _, error: NSError?) -> Void)*/
+        //logging out
+        dismiss(animated: true, completion: nil)
         
     }
     
     @IBAction func refreshBarButtonPressed(_ sender: Any) {
         
+        //error, states: ''getStudentLocations' is inaccessible due to 'private' protection level'
+        //ParseClient.sharedInstance().getStudentLocations()
         
     }
     

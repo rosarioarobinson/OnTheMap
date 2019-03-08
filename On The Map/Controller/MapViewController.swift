@@ -11,6 +11,8 @@ import MapKit
 
 //Used PinSample app as a reference to build code for Map View Controller
 
+//Should this code be added to OnTheMap.swift??
+
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     

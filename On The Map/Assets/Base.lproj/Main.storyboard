@@ -295,7 +295,7 @@
         <!--Add Location Final View Controller-->
         <scene sceneID="pnj-LR-H2J">
             <objects>
-                <viewController storyboardIdentifier="AddLocationFInalViewController" title="Add Location Final View Controller" id="QMt-Z4-RM3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLocationFInalViewController" title="Add Location Final View Controller" id="QMt-Z4-RM3" customClass="AddLocationFinalViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eUs-5E-Gtg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -326,6 +326,9 @@
                                     <color key="titleColor" red="1" green="0.10231783773279002" blue="0.069515765568351151" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="finishButtonTapped:" destination="QMt-Z4-RM3" eventType="touchUpInside" id="WC5-xW-SzO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -343,6 +346,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MTz-Dq-vge"/>
                     </view>
+                    <connections>
+                        <outlet property="finishButton" destination="9bB-oJ-8Sn" id="pzY-Nq-5b4"/>
+                        <outlet property="mapView" destination="9du-IG-fY1" id="4lS-3o-1jt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ek9-cx-eDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
