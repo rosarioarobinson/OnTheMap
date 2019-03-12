@@ -54,19 +54,6 @@ class UdacityClient {
                 return
             }
             
-            
-            //JSON
-           /* do {
-                let decoder = JSONDecoder()
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
-                DispatchQueue.main.async {
-                    completionHandlerForGET(responseObject, nil)
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completionHandlerForGET(nil, error as NSError)
-                }
-            }*/
         }
         task.resume()
     }
@@ -117,20 +104,8 @@ class UdacityClient {
                 return
             }
             
-            //JSON
-            /*do {
-                let decoder = JSONDecoder()
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
-                DispatchQueue.main.async {
-                    completionHandlerForPost(responseObject, nil)
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completionHandlerForPost(nil, error)
-                }
-            }*/
             
-            //added to be able to retrieve user profiles
+            //calling completion handler
             
             let newData = data?.subdata(in: 5..<data!.count)
             if let json = try? JSONSerialization.jsonObject(with: newData!, options: []),
@@ -142,9 +117,12 @@ class UdacityClient {
                 let sessionId = sessionDict["id"] as? String
                 print(key ?? "Empty Key")
                 print(sessionId ?? "Emty session id")
+                completionHandlerForPost(key as AnyObject, nil)
                 
             } else { //Err in parsing data
-                var errString = "Couldn't parse response"
+                let errString = "Couldn't parse response"
+                let error = [NSLocalizedDescriptionKey : errString]
+                completionHandlerForPost(nil, NSError(domain: "taskForPOSTMethod", code: 1, userInfo: error))
             }
         
         }
@@ -198,19 +176,7 @@ class UdacityClient {
                 sendError("No data was returned by the request!")
                 return
             }
-            
-            //JSON
-           /* do {
-                let decoder = JSONDecoder()
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
-                DispatchQueue.main.async {
-                    completionHandlerForDelete(responseObject, nil)
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completionHandlerForDelete(nil, error)
-                }
-            }*/
+
         }
         task.resume()
     }

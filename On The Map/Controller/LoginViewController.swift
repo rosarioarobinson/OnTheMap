@@ -52,31 +52,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
             //getting login credentials from UdacityClient and UdacityConvenience
-            //jsonBody error: 'Cannot convert value of type '[String : AnyObject].Type' to expected argument type '[AnyObject]'
+        //note: removed URL and jsonBody parameters
         
-        UdacityClient.sharedInstance().loginUser(usernameLogin: UsernameTextField.text!, passwordLogin: PasswordTextField.text!, url: URL(string: "https://www.udacity.com/api/session")!, jsonBody: []) { (success, errorString) in
+        UdacityClient.sharedInstance().loginUser(usernameLogin: UsernameTextField.text!, passwordLogin: PasswordTextField.text!) { (success, errorString) in
             if (success != nil) {
+                DispatchQueue.main.async {
+                    self.completeLogin()
+                }
                         self.completeLogin()
-                    }/*else if errorString != nil{
-                        self.showAlert(title: "Login Failed", message: errorString)
-                    }else{
-                        self.showAlert(title: "Login Failed", message: "Incorrect credentials were provided.")
-                    }*/
+            } else {
+                //error: Cannot convert value of type 'NSError?' to expected argument type 'String?'
+                //self.displayError(errorString)
+            }
             }
         
-        
-        /*guard let username = UsernameTextField.text, username != "" else {
-            print("username is empty")
-            newAlert(title: "Error!", message: "Please enter your username or email address!")
-            return
-        }
-        guard let password = PasswordTextField.text, password != "" else {
-            print("password is empty")
-            createAlert(title: "Error!", message: "Please enter your password!")
-            return
-        }
-        
-        disableUI()*/
         
     }
     
@@ -87,6 +76,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         UIApplication.shared.openURL(url!)
         
         
+    }
+    
+    func displayError(_ errorString: String?) {
+        if let errorString = errorString {
+            UsernameTextField.text! = errorString
+            PasswordTextField.text! = errorString
+        }
     }
     
     
@@ -115,8 +111,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     private func completeLogin() {
-        let controller = self.storyboard!.instantiateViewController(withIdentifier: "TabBarViewController") as! UITabBarController
+        UsernameTextField.text! = ""
+        PasswordTextField.text! = ""
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "MainNavBar") as! UINavigationController
         self.present(controller, animated: true, completion: nil)
+        
+    }
+    
+    func setUIEnabled(_ enabled: Bool) {
+        LogInButton.isEnabled = enabled
+        UsernameTextField.isEnabled = enabled
+        PasswordTextField.isEnabled = enabled
+        
         
     }
     

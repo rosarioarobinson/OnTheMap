@@ -13,13 +13,16 @@ extension UdacityClient {
     
     //POST
     //Note: This is where 'loginUser' for LoginViewController is from.
+    //removed url and jsonBody from the parameter as per project reviewer instructions.
     
-    func loginUser (usernameLogin: String, passwordLogin: String, url: URL, jsonBody: [String], completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
+    func loginUser (usernameLogin: String, passwordLogin: String, completionHandlerForPost: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
-        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
-        let parameters = [UdacityConstants.Constants.PublicUserURL]
+        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST)
+         Note: removed paramaters as per project reviewer due to not being in use anywhere.*/
+        
+        /*let parameters = [UdacityConstants.Constants.PublicUserURL]
         let parameterKeys = [UdacityConstants.ParameterKeys.username + UdacityConstants.ParameterKeys.password]
-        let httpBody: String = "{\"udacity\": {\"username\": \"username\", \"password\": \"password\"}}"
+        let httpBody: String = "{\"udacity\": {\"username\": \"username\", \"password\": \"password\"}}"*/
         
 
         
@@ -32,7 +35,7 @@ extension UdacityClient {
                 completionHandlerForPost(nil, error)
             }
             else {
-                completionHandlerForPost(nil, nil)
+                completionHandlerForPost(results, nil)
             }
         }
         
