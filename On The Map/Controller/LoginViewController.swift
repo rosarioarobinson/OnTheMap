@@ -48,21 +48,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func LogInPressed(_ sender: AnyObject) {
         
         if UsernameTextField.text!.isEmpty || PasswordTextField.text!.isEmpty {
-            print("Username or Password is Empty.")
+            self.displayError("Username or Password is Empty.")
         }
         
             //getting login credentials from UdacityClient and UdacityConvenience
         //note: removed URL and jsonBody parameters
         
-        UdacityClient.sharedInstance().loginUser(usernameLogin: UsernameTextField.text!, passwordLogin: PasswordTextField.text!) { (success, errorString) in
+        UdacityClient.sharedInstance().loginUser(usernameLogin: "", passwordLogin: "") { (success, errorString) in
             if (success != nil) {
                 DispatchQueue.main.async {
                     self.completeLogin()
                 }
-                        self.completeLogin()
             } else {
-                //error: Cannot convert value of type 'NSError?' to expected argument type 'String?'
-                //self.displayError(errorString)
+                //error added from displayError function
+                self.displayError("")
             }
             }
         
@@ -79,10 +78,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func displayError(_ errorString: String?) {
-        if let errorString = errorString {
-            UsernameTextField.text! = errorString
-            PasswordTextField.text! = errorString
-        }
+        // create the alert
+        let alert = UIAlertController(title: "Error!", message: "Login Has Failed.", preferredStyle: UIAlertControllerStyle.alert)
+        // add an action
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -111,8 +112,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     private func completeLogin() {
-        UsernameTextField.text! = ""
-        PasswordTextField.text! = ""
+        /*UsernameTextField.text! = ""
+        PasswordTextField.text! = ""*/
         let controller = self.storyboard!.instantiateViewController(withIdentifier: "MainNavBar") as! UINavigationController
         self.present(controller, animated: true, completion: nil)
         
