@@ -52,6 +52,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
             //getting login credentials from UdacityClient and UdacityConvenience
+            //username and password not passing correctly?
         //note: removed URL and jsonBody parameters
         
         UdacityClient.sharedInstance().loginUser(usernameLogin: "", passwordLogin: "") { (success, errorString) in
