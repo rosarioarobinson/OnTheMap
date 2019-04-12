@@ -28,14 +28,14 @@ extension ParseClient {
             //note:deprecated if let statement, kept getting this error: 'Type 'ResponseType' has no subscript members'
             if let error = error {
                 completionHandlerForGET(nil, error)
-            } /*else {
+            } else {
                 
                 if let results = results?[ParseConstants.JSONResponseKeys.requestToken] as? [[String:AnyObject]] {
-                    completionHandlerForGET(results, nil)
+                    completionHandlerForGET(results as AnyObject, nil)
                 } else {
                     completionHandlerForGET(nil, NSError(domain: "getStudentLocations", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student data"]))
                 }
-            }*/
+            }
             }
         }
     
@@ -54,14 +54,14 @@ extension ParseClient {
             //note:deprecated if let statement, kept getting this error: 'Type 'ResponseType' has no subscript members'
             if let error = error {
                 completionHandlerForPost(nil, error)
-            } /*else {
+            } else {
              
              if let results = results?[ParseConstants.JSONResponseKeys.requestToken] as? [[String:AnyObject]] {
-             completionHandlerForGET(results, nil)
+                completionHandlerForPost(results as AnyObject, nil)
              } else {
-             completionHandlerForGET(nil, NSError(domain: "getStudentLocations", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student data"]))
+                completionHandlerForPost(nil, NSError(domain: "getStudentLocations", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student data"]))
              }
-             }*/
+             }
         }
         
     }
@@ -81,14 +81,14 @@ extension ParseClient {
             //note:deprecated if let statement, kept getting this error: 'Type 'ResponseType' has no subscript members'
             if let error = error {
                 completionHandlerForPUT(nil, error)
-            } /*else {
+            } else {
              
              if let results = results?[ParseConstants.JSONResponseKeys.requestToken] as? [[String:AnyObject]] {
-             completionHandlerForGET(results, nil)
+                completionHandlerForPUT(results as AnyObject, nil)
              } else {
-             completionHandlerForGET(nil, NSError(domain: "getStudentLocations", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student data"]))
+                completionHandlerForPUT(nil, NSError(domain: "getStudentLocations", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student data"]))
              }
-             }*/
+             }
         }
         
     }
