@@ -51,11 +51,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.displayError("Username or Password is Empty.")
         }
         
-            //getting login credentials from UdacityClient and UdacityConvenience
-            //username and password not passing correctly?
+        //getting login credentials from UdacityClient and UdacityConvenience
         //note: removed URL and jsonBody parameters
         
-        UdacityClient.sharedInstance().loginUser(usernameLogin: "", passwordLogin: "") { (success, errorString) in
+        UdacityClient.sharedInstance().loginUser(usernameLogin: UsernameTextField.text ?? "", passwordLogin: PasswordTextField.text ?? "") { (success, errorString) in
             if (success != nil) {
                 DispatchQueue.main.async {
                     self.completeLogin()

@@ -22,7 +22,7 @@ struct StudentInformation {
     let longitude: Double?
     let createdAt: String?
     let updatedAt: String?
-    static var studentArray : [StudentInformation] = []
+    //static var studentArray : [StudentInformation] = []
     
     // MARK: Initializers
     

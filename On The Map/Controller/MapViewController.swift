@@ -20,6 +20,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     //outlet connection to map
     @IBOutlet weak var mapView: MKMapView!
     
+    //moved studentArray from StudentInformation in Model file to here.
+    static var studentArray : [StudentInformation] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
