@@ -10,7 +10,7 @@ import Foundation
 
 class StudentArray {
     
-    let sharedInstance = StudentArray()
+    static let sharedInstance = StudentArray()
     
     //moved studentArray from StudentInformation in Model file to here.
     var studentsArray = [StudentInformation]()
