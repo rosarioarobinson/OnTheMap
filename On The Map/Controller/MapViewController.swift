@@ -27,7 +27,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         var annotations = [MKPointAnnotation]()
         
         //insert StudentLocation structs
-        for student in StudentArray.studentsArray {
+        for student in StudentArray.sharedInstance.studentsArray {
             
         //latitude and longitude
             let lat = CLLocationDegrees(student.latitude ?? 0)
