@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D578462E2267B183003F526E /* StudentArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = D578462D2267B183003F526E /* StudentArray.swift */; };
 		D5B7838A219A6B80008240F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B78389219A6B80008240F3 /* AppDelegate.swift */; };
 		D5B7838F219A6B80008240F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B7838D219A6B80008240F3 /* Main.storyboard */; };
 		D5B78391219A6B80008240F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B78390219A6B80008240F3 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D578462D2267B183003F526E /* StudentArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentArray.swift; sourceTree = "<group>"; };
 		D5B78386219A6B80008240F3 /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B78389219A6B80008240F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5B7838E219A6B80008240F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				D5ED0C4121E95D6600DB172A /* TableViewCell.swift */,
 				D5ED0C3721E3EE9300DB172A /* AddLocationViewController.swift */,
 				D5ED0C47221E628A00DB172A /* AddLocationFinalViewController.swift */,
+				D578462D2267B183003F526E /* StudentArray.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				D5ED0C4221E95D6600DB172A /* TableViewCell.swift in Sources */,
 				D5ED0C2221A2444600DB172A /* SignUpViewController.swift in Sources */,
 				D5ED0C3C21E7F89500DB172A /* TableViewController.swift in Sources */,
+				D578462E2267B183003F526E /* StudentArray.swift in Sources */,
 				D5ED0C3021A5075900DB172A /* UdacityConstants.swift in Sources */,
 				D5D9F39D219A952200AA60D1 /* LoginViewController.swift in Sources */,
 				D5ED0C4421E9620000DB172A /* OnTheMap.swift in Sources */,
