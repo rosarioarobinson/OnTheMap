@@ -28,14 +28,14 @@ class  TableViewController: UITableViewController {
     //MARK: TableView Data
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return StudentInformation.studentArray.count
+        return StudentArray.sharedInstance.studentsArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //dequeue
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentInformation", for: indexPath) as! UITableViewCell
-        let student = StudentInformation.studentArray[indexPath.row]
-        let mediaURL = StudentInformation.studentArray[indexPath.row].mediaURL
+        let student = StudentArray.sharedInstance.studentsArray[indexPath.row]
+        let mediaURL = StudentArray.sharedInstance.studentsArray[indexPath.row].mediaURL
      
         //cell default info
         cell.textLabel?.text = (student.firstName!) + "..." + (student.lastName!)
@@ -47,7 +47,7 @@ class  TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
      
         let app = UIApplication.shared
-        let url = StudentInformation.studentArray[indexPath.row].mediaURL
+        let url = StudentArray.sharedInstance.studentsArray[indexPath.row].mediaURL
         
      
     }
