@@ -55,6 +55,18 @@ extension UdacityClient {
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {
                 completionHandlerForGET(nil, error)
+            } else {
+                if let results = results?[UdacityConstants.JSONResponseKeys.User] as? [String:AnyObject] {
+                    
+                    let firstName = results[UdacityConstants.JSONResponseKeys.firstName]
+                    completionHandlerForGET(firstName, nil)
+                    
+                    let lastName = results[UdacityConstants.JSONResponseKeys.lastName]
+                    completionHandlerForGET(lastName, nil)
+                    
+                } else {
+                    completionHandlerForGET(nil, NSError(domain: "getUserData parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse getUserData"]))
+                }
             }
         }
         
