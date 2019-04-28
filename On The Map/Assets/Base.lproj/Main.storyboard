@@ -396,7 +396,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Add" image="icon_addpin" id="Moy-ir-XEa"/>
+                            <barButtonItem title="Add" image="icon_addpin" id="Moy-ir-XEa">
+                                <connections>
+                                    <action selector="addBarButtonPressed:" destination="Zhl-T9-ZEA" id="fvn-Um-WPh"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Refresh" image="icon_refresh" id="kwg-rp-5VD">
                                 <connections>
                                     <action selector="refreshBarButtonPressed:" destination="Zhl-T9-ZEA" id="Qsu-25-Jx6"/>

@@ -38,10 +38,25 @@ class TabBarViewController: UITabBarController {
     
     @IBAction func refreshBarButtonPressed(_ sender: Any) {
         
-        //error, states: ''getStudentLocations' is inaccessible due to 'private' protection level'
+        //error, states: 'getStudentLocations' is inaccessible due to 'private' protection level'
         //ParseClient.sharedInstance().getStudentLocations()
         
     }
+    
+    @IBAction func addBarButtonPressed(_ sender: Any) {
+        
+        //Once 'add button' is pressed, moves onto
+        
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "TabBarViewController" {
+                let addLocationFinalViewController = segue.destination as! AddLocationViewController
+                
+            }
+        }
+        
+        
+    }
+    
     
     
     

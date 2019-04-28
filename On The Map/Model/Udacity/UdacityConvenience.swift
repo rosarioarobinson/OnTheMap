@@ -85,7 +85,11 @@ extension UdacityClient {
             
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {
+                print(error)
                 completionHandlerForDelete(nil, error)
+            } else {
+                print("Log Out Complete")
+                completionHandlerForDelete(true as AnyObject, nil)
             }
         }
         
