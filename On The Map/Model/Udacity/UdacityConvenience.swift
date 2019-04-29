@@ -20,9 +20,9 @@ extension UdacityClient {
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST)
          Note: removed paramaters as per project reviewer due to not being in use anywhere.*/
         
-        /*let parameters = [UdacityConstants.Constants.PublicUserURL]
+        let parameters = [UdacityConstants.Constants.PublicUserURL]
         let parameterKeys = [UdacityConstants.ParameterKeys.username + UdacityConstants.ParameterKeys.password]
-        let httpBody: String = "{\"udacity\": {\"username\": \"username\", \"password\": \"password\"}}"*/
+        let httpBody: String = "{\"udacity\": {\"username\": \"username\", \"password\": \"password\"}}"
         
 
         
