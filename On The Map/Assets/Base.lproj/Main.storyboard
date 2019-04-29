@@ -137,10 +137,10 @@
             </objects>
             <point key="canvasLocation" x="918" y="129"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Location View Controller-->
         <scene sceneID="LOg-Pg-J6r">
             <objects>
-                <viewController id="9tD-VJ-XDW" sceneMemberID="viewController">
+                <viewController id="9tD-VJ-XDW" customClass="AddLocationViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="icon_listview-deselected" selectedImage="icon_listview-selected" id="Tud-XY-Zqi"/>
                     <connections>
                         <segue destination="xkg-5E-YWD" kind="showDetail" id="DG2-8x-rSs"/>

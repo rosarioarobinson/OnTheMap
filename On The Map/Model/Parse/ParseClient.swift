@@ -87,6 +87,7 @@ class ParseClient {
                 let userInfo = [NSLocalizedDescriptionKey : error]
                 completionHandlerForGetMultipleLocations(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
             }
+        
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
@@ -106,19 +107,29 @@ class ParseClient {
                 return
             }
             
-            //JSON
-            /*do {
-                let decoder = JSONDecoder()
-                let responseObject = try decoder.decode(ResponseType.self, from: data)
-                DispatchQueue.main.async {
-                    completionHandlerForGetMultipleLocations(responseObject, nil)
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completionHandlerForGetMultipleLocations(nil, error)
-                }
-            }*/
+            //calling completion handler
+            
+            let newData = data?.subdata(in: 5..<data!.count)
+            if let json = try? JSONSerialization.jsonObject(with: newData!, options: []),
+                let dict = json as? [String:Any],
+                let sessionDict = dict["session"] as? [String: Any],
+                let accountDict = dict["account"] as? [String: Any]  {
+                
+                let key = accountDict["key"] as? String // This is used in getUserInfo(completion:)
+                let sessionId = sessionDict["id"] as? String
+                print(key ?? "Empty Key")
+                print(sessionId ?? "Emty session id")
+                completionHandlerForGetMultipleLocations(key as AnyObject, nil)
+                
+            } else { //Err in parsing data
+                let errString = "Couldn't parse response"
+                let error = [NSLocalizedDescriptionKey : errString]
+                completionHandlerForGetMultipleLocations(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: error))
+            }
+            print(String(data: data!, encoding: .utf8)!)
+            
         }
+        
         task.resume()
     }
     

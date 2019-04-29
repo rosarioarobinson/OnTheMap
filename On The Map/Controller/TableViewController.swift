@@ -52,5 +52,12 @@ class  TableViewController: UITableViewController {
      
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddLocationViewController" {
+            let addLocationViewController = segue.destination as! AddLocationViewController
+            
+        }
+    }
+    
     
 }
