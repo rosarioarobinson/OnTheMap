@@ -14,13 +14,13 @@ extension ParseClient {
     //MARK: Authenticating Users
     //GET
     
-    func getStudentLocations (_ method: String, url: URL, completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
+    func getStudentLocations (completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let parameters = [ParseConstants.Methods.StudentLocations]
         
         /* 2. Make the request */
-        let _ = taskForGetMultipleLocations(method, url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!) { (results, error) in
+        let _ = taskForGetMultipleLocations(ParseConstants.Methods.StudentLocations, url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!) { (results, error) in
             
         var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=100")!)
             
@@ -28,12 +28,7 @@ extension ParseClient {
             if let error = error {
                 completionHandlerForGET(nil, error)
             } else {
-                
-                if let results = results?[ParseConstants.JSONResponseKeys.requestToken] as? [[String:AnyObject]] {
-                    completionHandlerForGET(results as AnyObject, nil)
-                } else {
-                    completionHandlerForGET(nil, NSError(domain: "getStudentLocations", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student data"]))
-                }
+                completionHandlerForGET(results, nil)
             }
             }
         }

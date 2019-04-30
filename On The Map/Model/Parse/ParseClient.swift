@@ -109,22 +109,14 @@ class ParseClient {
             
             //calling completion handler
             
-            let newData = data?.subdata(in: 5..<data!.count)
-            if let json = try? JSONSerialization.jsonObject(with: newData!, options: []),
-                let dict = json as? [String:Any],
-                let sessionDict = dict["session"] as? [String: Any],
-                let accountDict = dict["account"] as? [String: Any]  {
-                
-                let key = accountDict["key"] as? String // This is used in getUserInfo(completion:)
-                let sessionId = sessionDict["id"] as? String
-                print(key ?? "Empty Key")
-                print(sessionId ?? "Emty session id")
-                completionHandlerForGetMultipleLocations(key as AnyObject, nil)
-                
-            } else { //Err in parsing data
-                let errString = "Couldn't parse response"
-                let error = [NSLocalizedDescriptionKey : errString]
-                completionHandlerForGetMultipleLocations(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: error))
+            let parsedResult: [String:AnyObject]!
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String:AnyObject]
+            } catch {
+                return
+            }
+            if let result = parsedResult["results"] as? [[String:AnyObject]]{
+                completionHandlerForGetMultipleLocations(result as AnyObject,nil)
             }
             print(String(data: data!, encoding: .utf8)!)
             

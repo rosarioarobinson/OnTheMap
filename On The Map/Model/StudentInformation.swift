@@ -24,6 +24,7 @@ struct StudentInformation {
     let updatedAt: String?
     //static var studentArray : [StudentInformation] = []
     
+    
     // MARK: Initializers
     
     init(dictionary: [String:AnyObject]) {
@@ -38,19 +39,34 @@ struct StudentInformation {
         longitude = dictionary[ParseConstants.JSONResponseKeys.longitude] as? Double
         createdAt = dictionary[ParseConstants.JSONResponseKeys.createdAt] as? String
         updatedAt = dictionary[ParseConstants.JSONResponseKeys.updatedAt] as? String
+        
+        /*var uniqueKey: String = ""
+        var firstName: String = ""
+        var mapString: String = ""
+        var latitude: String = ""
+        var longitude: String = ""
+        var updatedAt: String = ""
+        var objectId: String = ""
+        var createdAt: String = ""*/
+        
     }
+    
+    
     
     static func studentInformationFromResults(_ results: [[String:AnyObject]]) -> [StudentInformation] {
         
         var studentLocations = [StudentInformation]()
+        var studentArray:[StudentInformation] = StudentInformation.studentInformationFromResults(results)
         
-        // iterate through array of dictionaries, each Movie is a dictionary
+        // iterate through array of dictionaries
         for result in results {
             studentLocations.append(StudentInformation(dictionary: result))
         }
         
         return studentLocations
     }
+    
+    
 
     
 }

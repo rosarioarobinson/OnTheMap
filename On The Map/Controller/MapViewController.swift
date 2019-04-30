@@ -24,6 +24,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         var annotations = [MKPointAnnotation]()
         
         //insert StudentLocation structs
@@ -52,6 +53,19 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             //When the array is complete, we add the annotations to the map.
             self.mapView.addAnnotations(annotations)
             
+            
+            
+        }
+        
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        ParseClient.sharedInstance().getStudentLocations { (result, error) in
+            print(result)
         }
         
     }
