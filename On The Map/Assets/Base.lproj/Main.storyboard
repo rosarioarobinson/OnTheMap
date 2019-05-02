@@ -137,10 +137,10 @@
             </objects>
             <point key="canvasLocation" x="918" y="129"/>
         </scene>
-        <!--Add Location View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="LOg-Pg-J6r">
             <objects>
-                <viewController id="9tD-VJ-XDW" customClass="AddLocationViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9tD-VJ-XDW" customClass="TableViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="icon_listview-deselected" selectedImage="icon_listview-selected" id="Tud-XY-Zqi"/>
                     <connections>
                         <segue destination="xkg-5E-YWD" kind="showDetail" id="DG2-8x-rSs"/>
@@ -153,7 +153,7 @@
         <!--Table View Controller-->
         <scene sceneID="ngo-1R-mHn">
             <objects>
-                <tableViewController id="xkg-5E-YWD" customClass="TableViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="StudentInformation" id="xkg-5E-YWD" customClass="TableViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OPJ-h6-HAa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,7 +218,7 @@
         <!--Add Location View Controller-->
         <scene sceneID="ykN-0E-tsX">
             <objects>
-                <viewController storyboardIdentifier="AddLocationMAPViewController" title="Add Location View Controller" id="o7r-W0-vBO" customClass="AddLocationViewController" sceneMemberID="viewController">
+                <viewController title="Add Location View Controller" id="o7r-W0-vBO" customClass="AddLocationViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q2q-6M-pEK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -388,7 +388,7 @@
         <!--On The Map-->
         <scene sceneID="pRy-Lm-vA9">
             <objects>
-                <tabBarController id="Zhl-T9-ZEA" customClass="TabBarViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="SegueAddLocation" id="Zhl-T9-ZEA" customClass="TabBarViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On The Map" id="GLZ-LM-Yw8">
                         <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="HPT-fO-42z">
                             <connections>

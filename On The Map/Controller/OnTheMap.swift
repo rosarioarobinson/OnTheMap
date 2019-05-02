@@ -47,7 +47,7 @@ class TabBarViewController: UITabBarController {
         
         //Once 'add button' is pressed, moves onto
         
-        let controller = self.storyboard!.instantiateViewController(withIdentifier: "AddLocationViewController") as! UINavigationController
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "SegueAddLocation") as! UINavigationController
         self.present(controller, animated: true, completion: nil)
         
         
