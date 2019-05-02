@@ -56,7 +56,6 @@ struct StudentInformation {
     static func studentInformationFromResults(_ results: [[String:AnyObject]]) -> [StudentInformation] {
         
         var studentLocations = [StudentInformation]()
-        var studentArray:[StudentInformation] = StudentInformation.studentInformationFromResults(results)
         
         // iterate through array of dictionaries
         for result in results {

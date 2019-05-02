@@ -21,11 +21,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
    
     
+     var annotations = [MKPointAnnotation]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
         
-        var annotations = [MKPointAnnotation]()
+        ParseClient.sharedInstance().getStudentLocations { (result, error) in
+            StudentArray.sharedInstance.studentsArray =  StudentInformation.studentInformationFromResults(result as! [[String : AnyObject]])
+            
+        }
         
         //insert StudentLocation structs
         for student in StudentArray.sharedInstance.studentsArray {
