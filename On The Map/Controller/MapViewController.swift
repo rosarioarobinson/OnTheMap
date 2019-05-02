@@ -32,37 +32,38 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         ParseClient.sharedInstance().getStudentLocations { (result, error) in
             StudentArray.sharedInstance.studentsArray =  StudentInformation.studentInformationFromResults(result as! [[String : AnyObject]])
             
+            //insert StudentLocation structs
+            for student in StudentArray.sharedInstance.studentsArray {
+                
+                //latitude and longitude
+                let lat = CLLocationDegrees(student.latitude ?? 0)
+                let long = CLLocationDegrees(student.longitude ?? 0)
+                
+                //latitude and longitude are used to create CLLocationCoordinates2D instance.
+                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                
+                let first = student.firstName
+                let last = student.lastName
+                let mediaURL = student.mediaURL
+                
+                //Here we create the annotation and set its coordiate, title, and subtitle properties
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = coordinate
+                annotation.title = "\(String(describing: first)) \(String(describing: last))"
+                annotation.subtitle = mediaURL
+                
+                //Finally we place the annotation in an array of annotations.
+                self.annotations.append(annotation)
+                
+                //When the array is complete, we add the annotations to the map.
+                self.mapView.addAnnotations(self.annotations)
+                
+                
+            }
+           
+            
         }
         
-        //insert StudentLocation structs
-        for student in StudentArray.sharedInstance.studentsArray {
-            
-        //latitude and longitude
-            let lat = CLLocationDegrees(student.latitude ?? 0)
-            let long = CLLocationDegrees(student.longitude ?? 0)
-            
-        //latitude and longitude are used to create CLLocationCoordinates2D instance.
-            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            
-            let first = student.firstName
-            let last = student.lastName
-            let mediaURL = student.mediaURL
-            
-            //Here we create the annotation and set its coordiate, title, and subtitle properties
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = coordinate
-            annotation.title = "\(String(describing: first)) \(String(describing: last))"
-            annotation.subtitle = mediaURL
-            
-            //Finally we place the annotation in an array of annotations.
-            annotations.append(annotation)
-            
-            //When the array is complete, we add the annotations to the map.
-            self.mapView.addAnnotations(annotations)
-            
-            
-            
-        }
         
         
         
