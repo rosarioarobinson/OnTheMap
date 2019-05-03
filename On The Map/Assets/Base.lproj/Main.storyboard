@@ -218,7 +218,7 @@
         <!--Add Location View Controller-->
         <scene sceneID="ykN-0E-tsX">
             <objects>
-                <viewController title="Add Location View Controller" id="o7r-W0-vBO" customClass="AddLocationViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLocationViewController" title="Add Location View Controller" id="o7r-W0-vBO" customClass="AddLocationViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q2q-6M-pEK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -388,22 +388,22 @@
         <!--On The Map-->
         <scene sceneID="pRy-Lm-vA9">
             <objects>
-                <tabBarController storyboardIdentifier="SegueAddLocation" id="Zhl-T9-ZEA" customClass="TabBarViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="Zhl-T9-ZEA" customClass="TabBarViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="On The Map" id="GLZ-LM-Yw8">
                         <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="HPT-fO-42z">
                             <connections>
-                                <action selector="logoutBarButtonPressed:" destination="Zhl-T9-ZEA" id="WpR-74-JPm"/>
+                                <action selector="logoutBarButtonPressed:" destination="Zhl-T9-ZEA" id="Iod-PK-H0z"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Add" image="icon_addpin" id="Moy-ir-XEa">
                                 <connections>
-                                    <action selector="addBarButtonPressed:" destination="Zhl-T9-ZEA" id="fvn-Um-WPh"/>
+                                    <action selector="addBarButtonPressed:" destination="Zhl-T9-ZEA" id="3rj-oc-O1P"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Refresh" image="icon_refresh" id="kwg-rp-5VD">
                                 <connections>
-                                    <action selector="refreshBarButtonPressed:" destination="Zhl-T9-ZEA" id="Qsu-25-Jx6"/>
+                                    <action selector="refreshBarButtonPressed:" destination="Zhl-T9-ZEA" id="ro0-u1-Dnl"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -414,9 +414,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <outlet property="addBarButton" destination="Moy-ir-XEa" id="syX-xI-gzd"/>
-                        <outlet property="logoutBarButton" destination="HPT-fO-42z" id="WBv-IW-uYX"/>
-                        <outlet property="refreshBarButton" destination="kwg-rp-5VD" id="Qs7-kq-npb"/>
+                        <outlet property="addBarButton" destination="Moy-ir-XEa" id="aqV-NI-UFX"/>
+                        <outlet property="logoutBarButton" destination="HPT-fO-42z" id="FwO-lu-02F"/>
+                        <outlet property="refreshBarButton" destination="kwg-rp-5VD" id="xUb-kN-ZAe"/>
                         <segue destination="rm0-PN-ffq" kind="relationship" relationship="viewControllers" id="of9-v8-hp0"/>
                         <segue destination="9tD-VJ-XDW" kind="relationship" relationship="viewControllers" id="0dG-t0-18v"/>
                     </connections>

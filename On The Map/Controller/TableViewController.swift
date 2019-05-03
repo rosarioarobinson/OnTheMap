@@ -53,7 +53,7 @@ class  TableViewController: UITableViewController {
     }
     
     /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "TableViewController" {
+        if segue.identifier == "StudentInformation" {
             let tableViewController = segue.destination as! TableViewController
             
         }
