@@ -38,8 +38,8 @@ class TabBarViewController: UITabBarController {
     
     @IBAction func refreshBarButtonPressed(_ sender: Any) {
         
-        //error, states: 'getStudentLocations' is inaccessible due to 'private' protection level'
-        //ParseClient.sharedInstance().getStudentLocations()
+        //error, states: 'Cannot convert value of type '((AnyObject?, NSError?) -> Void).Type' to expected argument type '(AnyObject?, NSError?) -> Void'
+        //ParseClient.sharedInstance().getStudentLocations(completionHandlerForGET: (AnyObject?, NSError?) -> Void
         
     }
     

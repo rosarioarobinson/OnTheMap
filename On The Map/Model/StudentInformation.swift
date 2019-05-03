@@ -26,28 +26,21 @@ struct StudentInformation {
     
     
     // MARK: Initializers
+    //as per mentor instructions, added the empty strings to set struct so addlocationviewcontroller doesn't crash due to 'nil'
     
     init(dictionary: [String:AnyObject]) {
         
-        ObjectID = dictionary[ParseConstants.JSONResponseKeys.ObjectID] as? String
-        UniqueKey = dictionary[ParseConstants.JSONResponseKeys.UniqueKey] as? String
-        firstName = dictionary[ParseConstants.JSONResponseKeys.firstName] as? String
-        lastName = dictionary[ParseConstants.JSONResponseKeys.lastName] as? String
-        mapString = dictionary[ParseConstants.JSONResponseKeys.mapString] as? String
-        mediaURL = dictionary[ParseConstants.JSONResponseKeys.mediaURL] as? String
+        ObjectID = dictionary[ParseConstants.JSONResponseKeys.ObjectID] as? String ?? ""
+        UniqueKey = dictionary[ParseConstants.JSONResponseKeys.UniqueKey] as? String ?? ""
+        firstName = dictionary[ParseConstants.JSONResponseKeys.firstName] as? String ?? ""
+        lastName = dictionary[ParseConstants.JSONResponseKeys.lastName] as? String ?? ""
+        mapString = dictionary[ParseConstants.JSONResponseKeys.mapString] as? String ?? ""
+        mediaURL = dictionary[ParseConstants.JSONResponseKeys.mediaURL] as? String ?? ""
         latitude = dictionary[ParseConstants.JSONResponseKeys.latitude] as? Double
         longitude = dictionary[ParseConstants.JSONResponseKeys.longitude] as? Double
-        createdAt = dictionary[ParseConstants.JSONResponseKeys.createdAt] as? String
-        updatedAt = dictionary[ParseConstants.JSONResponseKeys.updatedAt] as? String
+        createdAt = dictionary[ParseConstants.JSONResponseKeys.createdAt] as? String ?? ""
+        updatedAt = dictionary[ParseConstants.JSONResponseKeys.updatedAt] as? String ?? ""
         
-        /*var uniqueKey: String = ""
-        var firstName: String = ""
-        var mapString: String = ""
-        var latitude: String = ""
-        var longitude: String = ""
-        var updatedAt: String = ""
-        var objectId: String = ""
-        var createdAt: String = ""*/
         
     }
     

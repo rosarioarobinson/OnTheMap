@@ -18,6 +18,9 @@ class  TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.register(TableViewCell.self, forCellReuseIdentifier: "tableviewcell")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,12 +36,12 @@ class  TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //dequeue
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentInformation", for: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewcell", for: indexPath) as! TableViewCell
         let student = StudentArray.sharedInstance.studentsArray[indexPath.row]
         let mediaURL = StudentArray.sharedInstance.studentsArray[indexPath.row].mediaURL
      
         //cell default info
-        cell.textLabel?.text = (student.firstName!) + "..." + (student.lastName!)
+        cell.textLabel?.text = "\(student.firstName!) \(student.lastName!)"
         cell.imageView!.image = UIImage(named: "icon_pin")
         cell.detailTextLabel?.text = mediaURL
         return cell
