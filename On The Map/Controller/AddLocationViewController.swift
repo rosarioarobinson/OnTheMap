@@ -18,6 +18,8 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var findLocationButton: UIButton!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     //lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,13 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Subscribe to keyboard notifications to allow the view to raise when necessary
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
     }
     
     //MARK: Actions
@@ -35,6 +44,23 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func findLocationTapped(_ sender: UIButton) {
+        
+        if currentLocationTextField.text!.isEmpty || urlTextField.text!.isEmpty {
+            self.displayError("There was an error that occurred, please try again.")
+        }
+        
+        
+        getCurrentLocation() { (success, errorString) in
+            if (success != nil) {
+                
+            } else {
+                //error added from displayError function
+                self.displayError("")
+            }
+        }
+        
+        self.activityIndicator.startAnimating()
+        
     }
     
     //allows keyboard to move frame upwards
@@ -69,11 +95,33 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         view.frame.origin.y = 0
     }
     
+    
+    func displayError(_ errorString: String?) {
+        // create the alert
+        let alert = UIAlertController(title: "Error!", message: "Login Has Failed.", preferredStyle: UIAlertControllerStyle.alert)
+        // add an action
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    //subscribe to keyboard notifications
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    // unsubscribe to keyboard notifications
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+    
     //Once 'Find Location' is pressed, moves onto AddLocationFinalViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddLocationFinalViewController" {
-            let addLocationFinalViewController = segue.destination as! AddLocationViewController
+            let addLocationFinalViewController = segue.destination as! AddLocationFinalViewController
      
         }
     }

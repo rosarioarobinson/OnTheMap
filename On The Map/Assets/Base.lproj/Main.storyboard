@@ -257,11 +257,18 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MO4-YO-UBc">
+                                <rect key="frame" x="178" y="252" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vwc-XX-Jek" firstAttribute="trailing" secondItem="2ds-Si-8TH" secondAttribute="trailing" constant="114" id="30R-8G-FQ0"/>
+                            <constraint firstItem="MO4-YO-UBc" firstAttribute="top" secondItem="xTk-QL-dkg" secondAttribute="bottom" constant="15" id="8ir-sr-Es8"/>
                             <constraint firstItem="8iw-5n-ofn" firstAttribute="top" secondItem="xTk-QL-dkg" secondAttribute="bottom" constant="43" id="9Wx-ch-brm"/>
+                            <constraint firstItem="MO4-YO-UBc" firstAttribute="leading" secondItem="vwc-XX-Jek" secondAttribute="leading" constant="178" id="A5Y-44-8ah"/>
+                            <constraint firstItem="8iw-5n-ofn" firstAttribute="top" secondItem="MO4-YO-UBc" secondAttribute="bottom" constant="8" id="Am8-t9-W0L"/>
                             <constraint firstItem="8iw-5n-ofn" firstAttribute="top" secondItem="xTk-QL-dkg" secondAttribute="bottom" constant="43" id="KLP-xG-moE"/>
                             <constraint firstItem="vwc-XX-Jek" firstAttribute="trailing" secondItem="xTk-QL-dkg" secondAttribute="trailing" constant="161" id="Kgg-rv-xWJ"/>
                             <constraint firstItem="xTk-QL-dkg" firstAttribute="leading" secondItem="vwc-XX-Jek" secondAttribute="leading" constant="161" id="LDn-7g-jJM"/>
@@ -275,6 +282,7 @@
                             <constraint firstItem="4ly-Ig-0ws" firstAttribute="leading" secondItem="q2q-6M-pEK" secondAttribute="leading" id="g9y-s7-sfb"/>
                             <constraint firstItem="2ds-Si-8TH" firstAttribute="top" secondItem="8iw-5n-ofn" secondAttribute="bottom" constant="8" id="gSZ-sk-oPg"/>
                             <constraint firstItem="2ds-Si-8TH" firstAttribute="top" secondItem="8iw-5n-ofn" secondAttribute="bottom" constant="8" id="jiM-fv-7xg"/>
+                            <constraint firstItem="vwc-XX-Jek" firstAttribute="trailing" secondItem="MO4-YO-UBc" secondAttribute="trailing" constant="177" id="lg5-7x-YKA"/>
                             <constraint firstItem="8iw-5n-ofn" firstAttribute="leading" secondItem="vwc-XX-Jek" secondAttribute="leading" constant="116" id="niu-jO-9R7"/>
                             <constraint firstItem="xTk-QL-dkg" firstAttribute="top" secondItem="4ly-Ig-0ws" secondAttribute="bottom" constant="130" id="y9t-M0-Jda"/>
                             <constraint firstItem="vwc-XX-Jek" firstAttribute="trailing" secondItem="8iw-5n-ofn" secondAttribute="trailing" constant="114" id="znh-Q8-8m8"/>
@@ -282,6 +290,7 @@
                         <viewLayoutGuide key="safeArea" id="vwc-XX-Jek"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="MO4-YO-UBc" id="QxM-iS-7DI"/>
                         <outlet property="currentLocationTextField" destination="8iw-5n-ofn" id="Rlt-IJ-jhr"/>
                         <outlet property="findLocationButton" destination="yVw-qg-Fbh" id="QIU-tC-VAe"/>
                         <outlet property="urlTextField" destination="2ds-Si-8TH" id="ngb-bQ-Fb5"/>

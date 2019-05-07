@@ -19,6 +19,7 @@ class AddLocationFinalViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var finishButton: UIButton!
     
     
+    
     //lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
