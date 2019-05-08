@@ -21,8 +21,9 @@ extension ParseClient {
         
         /* 2. Make the request */
         let _ = taskForGetMultipleLocations(ParseConstants.Methods.StudentLocations, url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!) { (results, error) in
-            
-        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=100")!)
+          
+        //removed var request per project reviewer stating code is not being used anywhere
+        /*var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation?limit=100")!)*/
             
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {

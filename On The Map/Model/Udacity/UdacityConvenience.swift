@@ -27,7 +27,7 @@ extension UdacityClient {
 
         
         /* 2. Make the request */
-        let _ = taskForPostMethod(usernameLogin, url: URL(string: "https://www.udacity.com/api/session")!, username: usernameLogin, password: passwordLogin) { (results, error) in
+        let _ = taskForPostMethod(usernameLogin, url: URL(string: "https://onthemap-api.udacity.com/v1/session")!, username: usernameLogin, password: passwordLogin) { (results, error) in
 
             
             /* 3. Send the desired value(s) to completion handler */

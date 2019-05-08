@@ -45,6 +45,9 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func findLocationTapped(_ sender: UIButton) {
         
+        //start animating activity indicator
+        self.activityIndicator.startAnimating()
+        
         if currentLocationTextField.text!.isEmpty || urlTextField.text!.isEmpty {
             self.displayError("There was an error that occurred, please try again.")
         }
@@ -52,6 +55,8 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         
         getCurrentLocation() { (success, errorString) in
             if (success != nil) {
+                //stop activity indicator
+                self.activityIndicator.stopAnimating()
                 
             } else {
                 //error added from displayError function
@@ -59,7 +64,6 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        self.activityIndicator.startAnimating()
         
     }
     

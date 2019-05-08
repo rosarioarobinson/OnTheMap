@@ -8,11 +8,18 @@
 
 import Foundation
 
-class StudentArray {
+
+//StudentInformation struct that is stored as an array inside a separate model class.
+
+public class StudentArray {
     
+    //Static reference of class
     static let sharedInstance = StudentArray()
     
-    //moved studentArray from StudentInformation in Model file to here.
+    // Private initializer so that no one can create instance of this class from outside.
+    private init(){}
+    
+    //Property to hold all the student location.
     var studentsArray = [StudentInformation]()
     
 }

@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-/*struct userData {
+/*
+ DEPRECATED CODE
+ struct userData {
     
     static var shared: userData = userData()
     

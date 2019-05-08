@@ -39,23 +39,40 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 //latitude and longitude are used to create CLLocationCoordinates2D instance.
                 let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                 
-                let first = student.firstName
-                let last = student.lastName
+                let first = student.firstName ?? ""
+                let last = student.lastName ?? ""
                 let mediaURL = student.mediaURL
+                
+                //added to properly handle cases where either first name, last name, or both are missing.
+                var fullName = ""
+                if first == "" && last == ""{
+                    fullName = "No Name"
+                }
+                else if first == ""{
+                    fullName =  last
+                }
+                else if last == ""{
+                    fullName = first
+                }
+                else{
+                    fullName = "\(first) \(last)"
+                }
                 
                 //Here we create the annotation and set its coordiate, title, and subtitle properties
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = coordinate
-                annotation.title = "\(String(describing: first)) \(String(describing: last))"
+                annotation.title = fullName
                 annotation.subtitle = mediaURL
                 
                 //Finally we place the annotation in an array of annotations.
                 self.annotations.append(annotation)
                 
-                //When the array is complete, we add the annotations to the map.
+                
+            }
+            
+            //When the array is complete, we add the annotations to the map.            
+            DispatchQueue.main.async {
                 self.mapView.addAnnotations(self.annotations)
-                
-                
             }
            
             
