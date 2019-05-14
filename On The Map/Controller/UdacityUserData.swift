@@ -9,18 +9,19 @@
 import Foundation
 import UIKit
 
-/*
- DEPRECATED CODE
+
  struct userData {
-    
-    static var shared: userData = userData()
     
     var uniqueKey: String = ""
     var firstName: String = ""
+    var lastName: String = ""
     var mapString: String = ""
     var latitude: String = ""
     var longitude: String = ""
     var updatedAt: String = ""
     var objectId: String = ""
     var createdAt: String = ""
-}*/
+    var mediaURL: String = ""
+}
+
+var shared: userData = userData()

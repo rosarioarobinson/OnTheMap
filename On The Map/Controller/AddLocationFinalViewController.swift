@@ -72,9 +72,10 @@ class AddLocationFinalViewController: UIViewController, MKMapViewDelegate {
     //MARK: Actions
     @IBAction func finishButtonTapped(_ sender: Any) {
         
-        //Add code for Parse to post and get location??
+        //Added method from ParseClient to post a new student location
+        //userData from UdacityUserData.swift
         
-        ParseClient.sharedInstance().postStudentLocation(firstName:student.firstName,  url: <#T##URL#>, jsonBody: <#T##[String : AnyObject]#>, completionHandlerForPost: <#T##(AnyObject?, NSError?) -> Void#>) { (result, error) in
+        ParseClient.sharedInstance().postStudentLocation(userData.firstName, userData.lastName, url: userData.mediaURL, jsonBody: [String:AnyObject]) { (result, error) in
             print(result)
         }
         
