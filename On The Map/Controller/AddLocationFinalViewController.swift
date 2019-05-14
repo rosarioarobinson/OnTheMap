@@ -39,8 +39,8 @@ class AddLocationFinalViewController: UIViewController, MKMapViewDelegate {
             //latitude and longitude are used to create CLLocationCoordinates2D instance.
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
             
-            // represent latitude of the new location
-            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 0.25, longitudinalMeters: 0.25);
+            
+            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 0.25, longitudinalMeters: 0.25)
             
             mapView.setRegion(region, animated: true)
             
@@ -72,7 +72,12 @@ class AddLocationFinalViewController: UIViewController, MKMapViewDelegate {
     //MARK: Actions
     @IBAction func finishButtonTapped(_ sender: Any) {
         
-        //Add code for Parse to post and put location??
+        //Add code for Parse to post and get location??
+        
+        ParseClient.sharedInstance().postStudentLocation(firstName:student.firstName,  url: <#T##URL#>, jsonBody: <#T##[String : AnyObject]#>, completionHandlerForPost: <#T##(AnyObject?, NSError?) -> Void#>) { (result, error) in
+            print(result)
+        }
+        
         
     }
     
