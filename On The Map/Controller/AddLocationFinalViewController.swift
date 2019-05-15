@@ -28,9 +28,6 @@ class AddLocationFinalViewController: UIViewController, MKMapViewDelegate {
         
         
         mapView.delegate = self
-        
-        //insert StudentLocation structs
-        for student in StudentArray.sharedInstance.studentsArray {
             
             //latitude and longitude
             let lat = CLLocationDegrees(student.latitude ?? 0)
@@ -56,8 +53,7 @@ class AddLocationFinalViewController: UIViewController, MKMapViewDelegate {
             
             //Finally we place the annotation in an array of annotations.
             self.annotations.append(annotation)
-            
-        }
+        
         
         //When the array is complete, we add the annotations to the map.
         DispatchQueue.main.async {
