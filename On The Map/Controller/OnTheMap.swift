@@ -39,7 +39,7 @@ class TabBarViewController: UITabBarController {
     @IBAction func refreshBarButtonPressed(_ sender: Any) {
         
         //error, states: 'Cannot convert value of type '((AnyObject?, NSError?) -> Void).Type' to expected argument type '(AnyObject?, NSError?) -> Void'
-    ParseClient.sharedInstance().getStudentLocations(completionHandlerForGET: (AnyObject?, NSError?) -> Void
+    ParseClient.sharedInstance().getStudentLocations { (object, error) in} 
     
     }
     

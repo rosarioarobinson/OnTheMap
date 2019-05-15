@@ -20,6 +20,8 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var selectedLocation: userData?
+    
     //lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,14 +55,18 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
         }
         
         
-        getCurrentLocation() { (success, errorString) in
-            if (success != nil) {
-                //stop activity indicator
-                self.activityIndicator.stopAnimating()
-                
+        getCurrentLocation() { (result, errorString) in
+            //stop activity indicator
+            self.activityIndicator.stopAnimating()
+            if (result != nil) {
+                self.selectedLocation = result
+                self.performSegue(withIdentifier: "ShowLocation", sender: nil)
+                return
             } else {
                 //error added from displayError function
+                self.selectedLocation = nil
                 self.displayError("")
+                return
             }
         }
         
@@ -73,23 +79,23 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     }
     
     //Initiate Geocoder to forward location
-    func getCurrentLocation(completionHandler: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
+    func getCurrentLocation(completionHandler: @escaping (_ result: userData?, _ error: NSError?) -> Void) {
         
         if let locationString = currentLocationTextField.text{
             CLGeocoder().geocodeAddressString(currentLocationTextField.text!) { (placeMarks, err) in
                 
                 guard let firstLocation = placeMarks?.first?.location else { return }
                 
+                //creating a new location using userData from UdacityUserData
+                let userLocation = userData(uniqueKey: "", firstName: "", lastName: "", mapString: locationString, latitude: firstLocation.coordinate.latitude, longitude: firstLocation.coordinate.longitude, updatedAt: "", objectId: "", createdAt: "", mediaURL: self.urlTextField.text ?? "")
+                completionHandler(userLocation, nil)
                 
-                let latitude = firstLocation.coordinate.latitude
-                let longitude = firstLocation.coordinate.longitude
-                // Use above coordinates and pass them to your final view controller.
             }
         }
             
         else{
             // Show some error that the input is not present
-            //tried adding error, wouldn't work?
+            self.displayError("")
             
         }
     }
@@ -102,7 +108,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     func displayError(_ errorString: String?) {
         // create the alert
-        let alert = UIAlertController(title: "Error!", message: "Login Has Failed.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Error!", message: "Error, please try again.", preferredStyle: UIAlertControllerStyle.alert)
         // add an action
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         // show the alert
@@ -124,7 +130,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     //Once 'Find Location' is pressed, moves onto AddLocationFinalViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddLocationFinalViewController" {
+        if segue.identifier == "ShowLocation" {
             let addLocationFinalViewController = segue.destination as! AddLocationFinalViewController
      
         }

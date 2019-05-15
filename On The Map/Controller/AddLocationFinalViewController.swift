@@ -21,6 +21,8 @@ class AddLocationFinalViewController: UIViewController, MKMapViewDelegate {
     
     var annotations = [MKPointAnnotation]()
     
+    var student: userData?
+    
     
     //lifecycle
     override func viewDidLoad() {
@@ -30,20 +32,20 @@ class AddLocationFinalViewController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
             
             //latitude and longitude
-            let lat = CLLocationDegrees(student.latitude ?? 0)
-            let long = CLLocationDegrees(student.longitude ?? 0)
+            let lat = CLLocationDegrees(student?.latitude ?? 0)
+            let long = CLLocationDegrees(student?.longitude ?? 0)
             
             //latitude and longitude are used to create CLLocationCoordinates2D instance.
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
             
             
-            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 0.25, longitudinalMeters: 0.25)
+            let region = MKCoordinateRegionMakeWithDistance(coordinate, 0.25, 0.25)
             
             mapView.setRegion(region, animated: true)
             
-            let first = student.firstName ?? ""
-            let last = student.lastName ?? ""
-            let mediaURL = student.mediaURL
+            let first = student?.firstName ?? ""
+            let last = student?.lastName ?? ""
+            let mediaURL = student?.mediaURL
             
             //Here we create the annotation and set its coordiate, title, and subtitle properties
             let annotation = MKPointAnnotation()
@@ -69,11 +71,12 @@ class AddLocationFinalViewController: UIViewController, MKMapViewDelegate {
     @IBAction func finishButtonTapped(_ sender: Any) {
         
         //Added method from ParseClient to post a new student location
-        //userData from UdacityUserData.swift
-        
-        ParseClient.sharedInstance().postStudentLocation(userData.firstName, userData.lastName, url: userData.mediaURL, jsonBody: [String:AnyObject]) { (result, error) in
+        //userData from UdacityUserData
+        //error being thrown: 'Instance member 'firstName' cannot be used on type 'userData'
+        /*ParseClient.sharedInstance().postStudentLocation(userData.firstName, url: userData.mediaURL, jsonBody: [String:AnyObject]) { (result, error) in
             print(result)
-        }
+            
+        }*/
         
         
     }
