@@ -13,7 +13,7 @@ import UIKit
 
  struct userData {
     
-    var uniqueKey: String = ""
+    var uniqueKey: String = "" 
     var firstName: String = ""
     var lastName: String = ""
     var mapString: String = ""

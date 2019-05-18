@@ -71,12 +71,10 @@ class AddLocationFinalViewController: UIViewController, MKMapViewDelegate {
     @IBAction func finishButtonTapped(_ sender: Any) {
         
         //Added method from ParseClient to post a new student location
-        //userData from UdacityUserData
-        //error being thrown: 'Instance member 'firstName' cannot be used on type 'userData'
-        /*ParseClient.sharedInstance().postStudentLocation(userData.firstName, url: userData.mediaURL, jsonBody: [String:AnyObject]) { (result, error) in
-            print(result)
+        ParseClient.sharedInstance().postStudentLocation(student!.firstName, url: URL(string: student!.mediaURL)!, jsonBody: [:]) { (result, error) in
+            print(result!)
             
-        }*/
+        }
         
         
     }
