@@ -38,8 +38,27 @@ class TabBarViewController: UITabBarController {
     
     @IBAction func refreshBarButtonPressed(_ sender: Any) {
         
-        //error, states: 'Cannot convert value of type '((AnyObject?, NSError?) -> Void).Type' to expected argument type '(AnyObject?, NSError?) -> Void'
-    ParseClient.sharedInstance().getStudentLocations { (object, error) in} 
+    let mapViewController = self.viewControllers![0] as! MapViewController
+    let tableViewController = self.viewControllers![1] as! TableViewController
+    
+    //added to help remove previous annotations before adding new student locations
+    let annotations = mapViewController.mapView.annotations
+    mapViewController.mapView.removeAnnotations(annotations)
+        
+    //get locations to download again
+    ParseClient.sharedInstance().getStudentLocations { (object, error) in
+        DispatchQueue.main.async {
+            if (object != nil) {
+                //reload data
+                mapViewController.mapView.annotations
+                tableViewController.tableView.reloadData()
+            } else {
+                //error added from displayError function
+                self.displayError("")
+            }
+            return
+        }
+        }
     
     }
     
@@ -56,6 +75,13 @@ class TabBarViewController: UITabBarController {
     }
     
     
-    
+    func displayError(_ errorString: String?) {
+        // create the alert
+        let alert = UIAlertController(title: "Error!", message: "Sorry, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+        // add an action
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }
