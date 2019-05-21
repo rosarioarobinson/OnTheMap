@@ -46,17 +46,20 @@ class TabBarViewController: UITabBarController {
     mapViewController.mapView.removeAnnotations(annotations)
         
     //get locations to download again
-    ParseClient.sharedInstance().getStudentLocations { (object, error) in
+    ParseClient.sharedInstance().getStudentLocations { (studentLocations, error) in
+        if let studentLocations = studentLocations {
+            StudentArray.sharedInstance = studentLocations as! StudentArray
         DispatchQueue.main.async {
-            if (object != nil) {
+            if (studentLocations != nil) {
                 //reload data
                 mapViewController.mapView.addAnnotation(annotations as! MKAnnotation)
-                tableViewController.tableView.reloadData()
+                //tableViewController.tableView.reloadData()
             } else {
                 //error added from displayError function
                 self.displayError("")
             }
             return
+        }
         }
         }
     

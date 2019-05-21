@@ -13,13 +13,14 @@ import Foundation
 
 public class StudentArray {
     
+    //Property to hold all the student location.
+    var studentsArray = [StudentInformation]()
+    
     //Static reference of class
-    static let sharedInstance = StudentArray()
+    static var sharedInstance = StudentArray()
     
     // Private initializer so that no one can create instance of this class from outside.
     private init(){}
     
-    //Property to hold all the student location.
-    var studentsArray = [StudentInformation]()
     
 }
