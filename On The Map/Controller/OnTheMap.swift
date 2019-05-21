@@ -50,7 +50,7 @@ class TabBarViewController: UITabBarController {
         DispatchQueue.main.async {
             if (object != nil) {
                 //reload data
-                mapViewController.mapView.annotations
+                mapViewController.mapView.addAnnotation(annotations as! MKAnnotation)
                 tableViewController.tableView.reloadData()
             } else {
                 //error added from displayError function
