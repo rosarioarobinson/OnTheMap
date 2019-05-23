@@ -12,4 +12,11 @@ A user will also be able to add their own data by posting a string that can be r
 
 ## API's 
   1. Udacity
-  2. Parse
+  2. Parse 
+
+## Learned
+
+- How to access networking data using Apple's URL loading framework
+- Authentication a user over a network connection
+- Created user interfaces that are response and communicate network activity
+- Used Core Location and the MapKit framework to display annotated pins on a map
