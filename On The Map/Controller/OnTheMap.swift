@@ -52,8 +52,10 @@ class TabBarViewController: UITabBarController {
         DispatchQueue.main.async {
             if (studentLocations != nil) {
                 //reload data
-                //mapViewController.mapView.addAnnotation(annotations as! MKAnnotation)
-                tableViewController.tableView.reloadData()
+                //readding pins to the map
+            mapViewController.mapView.addAnnotation(annotations as! MKAnnotation)
+            //refresh table
+            tableViewController.tableView.reloadData()
             } else {
                 //error added from displayError function
                 self.displayError("")
@@ -62,7 +64,7 @@ class TabBarViewController: UITabBarController {
         }
         }
         
-        mapViewController.mapView.addAnnotation(annotations as! MKAnnotation)
+        /*mapViewController.mapView.addAnnotation(annotations as! MKAnnotation)*/
         }
     
     }

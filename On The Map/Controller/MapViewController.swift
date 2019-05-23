@@ -27,7 +27,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         
         ParseClient.sharedInstance().getStudentLocations { (result, error) in
-            StudentArray.sharedInstance.studentsArray =  StudentInformation.studentInformationFromResults(result as! [[String : AnyObject]])
+            
+            if (result != nil) {StudentArray.sharedInstance.studentsArray =  StudentInformation.studentInformationFromResults(result as! [[String : AnyObject]])}
+                
+            else {
             
             //insert StudentLocation structs
             for student in StudentArray.sharedInstance.studentsArray {
@@ -68,6 +71,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 self.annotations.append(annotation)
                 
                 
+            }
             }
             
             //When the array is complete, we add the annotations to the map.            
