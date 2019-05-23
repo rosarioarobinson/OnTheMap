@@ -22,6 +22,7 @@ class ParseConstants {
         static let ApiHost: String = "parse.udacity.com"
         static let ApiPath: String = "/parse/classes"
         static let BaseURL: String = "https://parse.udacity.com/parse/classes"
+        //Parse URL recently redacted, replacement if needed: https://onthemap-api.udacity.com
     }
     
     //MARK: Methods

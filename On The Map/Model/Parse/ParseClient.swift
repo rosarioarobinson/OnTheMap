@@ -12,6 +12,7 @@ class ParseClient {
     
     static let shared = ParseClient()
     
+    //Parse URL recently redacted, replacement if needed: https://onthemap-api.udacity.com
     // shared session
     var session = URLSession.shared
     

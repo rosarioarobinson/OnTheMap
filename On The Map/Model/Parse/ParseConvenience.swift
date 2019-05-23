@@ -11,6 +11,8 @@ import UIKit
 
 extension ParseClient {
     
+    //Parse URL recently redacted, replacement if needed: https://onthemap-api.udacity.com
+    
     //MARK: Authenticating Users
     //GET
     
